@@ -10,7 +10,7 @@ div{
 	padding-top: 1px;
 	padding-bottom: 10px;
 }
-	header
+	.head
 	{
 		border:1px solid black;
 		background-color: #5E6B86;
@@ -22,39 +22,45 @@ div{
 	.text_color{
 		color:white;
     font-size: 40px;
-    font-style: solid bold;
-    margin-left: 200px;
-    text-shadow: 1px 5px 5px white;
+    font-style: solid bold
+    margin-left: 300px;
+    text-shadow: 4px 7px 5px white;
 	}
 	.email_color{
-		color:white;
-    font-size: 15px;
-    font-style: solid bold;
-    margin-left: 330px;   
-    display: inline-block;
+		display: inline;
+		color: white;
+   font-size: 15px;
+  font-style: solid bold;
+  margin-left: 600px;
+  margin-top: 20px;
+    
   }
   .pwd_color{
+  	display: inline;
   	color:white;
     font-size: 15px;
     font-style: solid bold;
-    margin-left: 200px;
+    margin-left: 80px;
+    margin-top: -20px;
+    margin-bottom: 2000px;
     
   }
   .tx1{
-  	display: inline-block;
-  	margin-left: 300px;
-   	margin-top: 5px;
+  	display: inline;
+  	margin-left: 750px;
+   	margin-top: 3px;
    	padding:5px;
    	width: 100px;
-   	height: 15px;
+   	height: 12px;
+
   }
   .tx2{
-  	
-  	margin-left: 800px;
-    margin-top: 10px;
+  	margin-top: -10px;
+  	display: inline;
+  	margin-left: 930px;  
    	padding:5px;
    	width: 100px;
-   	height: 15px;
+   	height: 12px;
   }
 	.button1:hover
 	{
@@ -71,13 +77,12 @@ div{
 		transition-duration: 0.4s; 
 	}
 	.button2{
-
     background-color:green;
 		margin-left: 500px;
 		cursor:pointer;
 		font-size: 25px;
-		max-height: 65px;
-		width: 200px;
+		height: 45px;
+		width: 180px;
 		color:white;
 		border:1px solid black;
 		-webkit-transition-duration:0.4s;
@@ -149,29 +154,38 @@ div{
   .rd1{margin-left:100px;
   	
   }
+  .forgot{
+ font-size: 15px;
+ margin-top: 50px;
+ margin-left: 800px;
+ margin-right: 100px;
+
+  }
      
 	footer{
 		background-color: white;
 		padding-bottom: 20px;
 	}
 </style>
-	<header>
-	
-	<label class="email_color">email</label><br>
-	<input type="text" class="tx1" >
-	<label class="pwd_color">password</label><br>
-	<input type="text" class="tx2" >
-	<button class="button1">Login</button>
-</header>
+
 <body>
+	<form>
 	<div>
+		<div class="head">
+		<text class="text_color">facebook</text>
+	<label class="email_color" required>email</label><br>
+	<input type="text" class="tx1" >
+	<label class="pwd_color" required>password</label><br>	
+	<input type="password" class="tx2" >
+	<button class="button1"onclick="myFunc()">Login</button>
+<text class="forgot"><a href="#">forgotten password</a></text></div>
 	<h2>Create a New Account</h2>
 	<p>its free and always will be</p>
-	<input type="text" class="text2" placeholder="First Name">
-	<input type="text" class="text3" placeholder="SurName"><br>
-	<input type="text" class="text4" placeholder="Mobile no or Email Address">
+	<input type="text" class="text2" placeholder="First Name" required>
+	<input type="text" class="text3" placeholder="SurName" required><br>
+	<input type="text" class="text4" placeholder="Mobile no or Email Address" id="numb" required>
 	<br>
-	<input type="text" class="text5" placeholder="New Password">
+	<input type="password" class="text5" placeholder="New Password" required><br>
 	<label class="lab">Birthday</label><br>
 	<select name="date" class="sel1">
 		<option value="1">1</option>
@@ -204,7 +218,37 @@ div{
   <input type="radio" class="rd1" value="m" name="Male">Male<br>
   <p class="p1">By clicking Sign Up, you agree to our <a href="#">Terms</a>, <a href="#">Data Policy</a> and <a href="#">Cookie Policy</a>. You may receive SMS notifications from us and can opt out at any time.</p>
   <button class="button2">sign Up</button>
-	
+    
+
 </div>
+
+<script>
+	function myFunc(){
+		var x,text;
+		x=document.getElementsByClassName("pwd_color").value;
+		if(isEmpty(x.length)|| x.length==0){
+			text="password not be blank";
+		}else{
+      text="password strength is good";
+		}
+		document.getElementsByClassName("pwd_color").innerHTML=alert(text.text);
+		}
+
+ function myFunction() {
+    var x, text;
+
+    // Get the value of the input field with id="numb"
+    x = document.getElementById("numb").value;
+
+    // If x is Not a Number or less than one or greater than 10
+    if (isNaN(x) || x < 1 || x > 10) {
+        text = "Input not valid";
+    } else {
+        text = "Input OK";
+    }
+    document.getElementById("demo").innerHTML = text;
+}
+	
+</script></form>
 </body>
 </html>
