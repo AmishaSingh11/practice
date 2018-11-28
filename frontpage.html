@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<title>facebook page</title>
+<head></head>
+<style>
+div{
+	background-color: #D7DAE0;
+	max-height: 800px;
+	width: auto;
+	padding-top: 1px;
+	padding-bottom: 10px;
+}
+	header
+	{
+		border:1px solid black;
+		background-color: #5E6B86;
+		height: 75px;
+		width: auto;
+		padding-top: 30px;
+    border-color: black;    
+	}
+	.text_color{
+		color:white;
+    font-size: 40px;
+    font-style: solid bold;
+    margin-left: 200px;
+    text-shadow: 1px 5px 5px white;
+	}
+	.email_color{
+		color:white;
+    font-size: 15px;
+    font-style: solid bold;
+    margin-left: 330px;   
+    display: inline-block;
+  }
+  .pwd_color{
+  	color:white;
+    font-size: 15px;
+    font-style: solid bold;
+    margin-left: 200px;
+    
+  }
+  .tx1{
+  	display: inline-block;
+  	margin-left: 300px;
+   	margin-top: 5px;
+   	padding:5px;
+   	width: 100px;
+   	height: 15px;
+  }
+  .tx2{
+  	
+  	margin-left: 800px;
+    margin-top: 10px;
+   	padding:5px;
+   	width: 100px;
+   	height: 15px;
+  }
+	.button1:hover
+	{
+    padding: 5px;
+    background-color:blue;
+		margin-left: 400px;
+		margin-right:100px;
+		margin-bottom: 30px;
+		float:right;
+		cursor:pointer;
+		color:#5E6B86;
+		border:1px solid black;
+		-webkit-transition-duration:0.4s;
+		transition-duration: 0.4s; 
+	}
+	.button2{
+
+    background-color:green;
+		margin-left: 500px;
+		cursor:pointer;
+		font-size: 25px;
+		max-height: 65px;
+		width: 200px;
+		color:white;
+		border:1px solid black;
+		-webkit-transition-duration:0.4s;
+		transition-duration: 0.4s; 
+	}
+	.text1{
+		font-size: 30px;
+		color:white;
+	}
+	h2{
+		margin-left: 500px;
+		font-size: 30px;		
+	}
+	p,input{
+		margin-left: 500px;
+		font-size: 20px;	
+	}
+	.p1{
+		font-style: initial;
+		font-size: 12px;
+		margin-left: 500px;
+		margin-right: 400px;
+	}
+	.lab{
+		margin-left: 500px;
+    font-size: 16px;
+    margin-top: 30px;
+	}
+	select{
+		display: inline-block;
+	}
+	.sel1{
+		margin-left: 500px;
+	}
+	.text2{
+   	margin-left: 500px;
+   	margin-top: 5px;
+   	padding:7px;
+   	width: 150px;
+   	height: 20px;
+
+   }
+   .text3{
+   	display: inline-block;
+   	margin-right: 300px;
+   	margin-left: 16px;
+   	margin-top: 5px;
+   	padding:7px;
+   	width: 150px;
+   	height: 20px;
+   }
+   .text4{
+   	margin-top: 5px;
+   	margin-left: 500px;
+   	padding:7px;
+   	width: 350px;
+   	height: 20px;
+   }
+    .text5{
+    margin-top: 5px;
+   	margin-left: 500px;
+   	padding: 7px;
+   	width: 350px;
+   	height: 20px;
+   }
+  .rd{margin-left: 500px;
+  	margin-top: 5px;
+  }
+  .rd1{margin-left:100px;
+  	
+  }
+     
+	footer{
+		background-color: white;
+		padding-bottom: 20px;
+	}
+</style>
+	<header>
+	
+	<label class="email_color">email</label><br>
+	<input type="text" class="tx1" >
+	<label class="pwd_color">password</label><br>
+	<input type="text" class="tx2" >
+	<button class="button1">Login</button>
+</header>
+<body>
+	<div>
+	<h2>Create a New Account</h2>
+	<p>its free and always will be</p>
+	<input type="text" class="text2" placeholder="First Name">
+	<input type="text" class="text3" placeholder="SurName"><br>
+	<input type="text" class="text4" placeholder="Mobile no or Email Address">
+	<br>
+	<input type="text" class="text5" placeholder="New Password">
+	<label class="lab">Birthday</label><br>
+	<select name="date" class="sel1">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+	</select>
+	<select name="month" >
+		<option value="jan">jan</option>
+		<option value="feb">feb</option>
+		<option value="mar">mar</option>
+		<option value="apr">apr</option>
+		<option value="may">may</option>
+		<option value="june">jun</option>
+	</select>
+	<select name="year" >
+		<option value="1">1990</option>
+		<option value="2">1991</option>
+		<option value="3">1993</option>
+		<option value="4">2014</option>
+		<option value="5">2015</option>
+		<option value="6">2016</option>
+		<option value="7">2017</option>
+	</select>
+	<br>
+	<input type="radio" class="rd" value="F" name="Female">Female
+  <input type="radio" class="rd1" value="m" name="Male">Male<br>
+  <p class="p1">By clicking Sign Up, you agree to our <a href="#">Terms</a>, <a href="#">Data Policy</a> and <a href="#">Cookie Policy</a>. You may receive SMS notifications from us and can opt out at any time.</p>
+  <button class="button2">sign Up</button>
+	
+</div>
+</body>
+</html>
