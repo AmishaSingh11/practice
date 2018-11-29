@@ -122,11 +122,12 @@ function myFunction() {
       var fname=document.myform.fname.value;
       var lname=document.myform.lname.value;
       var mobile=document.myform.mobile.value;
+      var email=document.myform.email.value;
       var pwd=document.myform.pwd.value;
       var cpwd=document.myform.cpwd.value;
       var addr=document.myform.addr.value;
 
-    if (fname==null || fname==""){  
+   if (fname==null || fname==""){  
    alert("First Name can't be blank");  
   return false;  
   }
@@ -134,8 +135,13 @@ function myFunction() {
    alert("Last Name can't be blank");  
   return false;  
   }
+
    if (mobile.length>0 || mobile.length<11){  
    alert("phone Number should be between 1 to 10");  
+  return false;  
+  }
+   if (email==null || email==""){  
+   alert("please enter valid email");  
   return false;  
   }
    if(pwd.length<6){  
@@ -152,7 +158,6 @@ function myFunction() {
   } 
 }  
     
-
 </script>
 <body>
 	<form name="myform" onsubmit="myFun()">
@@ -163,7 +168,9 @@ function myFunction() {
 	<h2><i>Create a New Account.....</i></h2>
 	<input type="text" class="text2" name="fname" placeholder="First Name" >
 	<input type="text" class="text3" name="lname" placeholder="LastName" ><br>
-	<input type="text" class="text4" name="mobile" placeholder="Mobile no or Email Address" >
+	<input type="text" class="text4" name="mobile" placeholder="please enter Mobile no" >
+	<br>
+	<input type="email" class="text4" name="email" placeholder="enter Email Address">
 	<br>
 	<input type="password" class="text5" name="pwd" placeholder="Password" ><br>
 	<input type="password" class="text5" name="cpwd" placeholder="Confirmd Password"><br>
@@ -199,21 +206,11 @@ function myFunction() {
 	<label class="lab">Gender</label><br>
 	<input type="radio" class="rd" value="F" name="Female">Female
   <input type="radio" class="rd1" value="m" name="Male">Male<br><br>
-  <input type="checkbox" id="myCheck" onclick="myFunction()">all the informations are correct to given by me..<br><br>
+  <input type="checkbox" id="myCheck" onclick="myFunction()"><i>all the informations are correct to given by me..</i><br><br>
   <p id="text" style="display:none"></p>
   <button class="button2">Submit</button>
+  <a href="frontpage.html">back</a>
 </div>
 </form>
-<script>
-function myFunction() {
-    var checkBox = document.getElementById("myCheck");
-    var text = document.getElementById("text");
-    if (checkBox.checked == true){
-        text.style.display = "block";
-    } else {
-       text.style.display = "none";
-    }
-}
-</script>
 </body>
 </html>

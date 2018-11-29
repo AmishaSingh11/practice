@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+<head>
 <title>facebook page</title>
-<head></head>
+</head>
 <style>
 div{
 	background-color: #D7DAE0;
@@ -24,57 +25,57 @@ div{
     font-size: 40px;
     font-style: solid bold
     margin-left: 300px;
-    text-shadow: 4px 7px 5px white;
+    /*text-shadow: 4px 7px 5px white;*/
 	}
 	.email_color{
-		display: inline;
-		color: white;
-   font-size: 15px;
-  font-style: solid bold;
-  margin-left: 600px;
-  margin-top: 20px;
-    
+		
+	color: white;
+font-size: 15px;
+font-style: solid bold;
+margin-left: 600px;
+margin-top: -3px;
+position: absolute;
   }
   .pwd_color{
-  	display: inline;
-  	color:white;
-    font-size: 15px;
-    font-style: solid bold;
-    margin-left: 80px;
-    margin-top: -20px;
-    margin-bottom: 2000px;
-    
+  	color: white;
+font-size: 15px;
+font-style: solid bold;
+margin-left: 918px;
+margin-top: -50px;
+margin-bottom: 2000px;
+position: absolute;   
   }
   .tx1{
-  	display: inline;
+  
   	margin-left: 750px;
-   	margin-top: 3px;
-   	padding:5px;
-   	width: 100px;
-   	height: 12px;
-
+margin-top: -22px;
+padding: 5px;
+width: 100px;
+height: 12px;
+position: absolute;
   }
   .tx2{
-  	margin-top: -10px;
-  	display: inline;
-  	margin-left: 930px;  
-   	padding:5px;
-   	width: 100px;
-   	height: 12px;
+  	margin-top: -22px;
+margin-left: 900px;
+padding: 5px;
+width: 100px;
+height: 12px;
+position: absolute;
   }
-	.button1:hover
+	.button1
 	{
     padding: 5px;
     background-color:blue;
-		margin-left: 400px;
-		margin-right:100px;
+		margin-left: 1100px;
+		float: right;
+		margin-top: -18px;
 		margin-bottom: 30px;
-		float:right;
 		cursor:pointer;
-		color:#5E6B86;
+		color:white;
 		border:1px solid black;
-		-webkit-transition-duration:0.4s;
-		transition-duration: 0.4s; 
+		position: absolute;
+		/*-webkit-transition-duration:0.4s;
+		transition-duration: 0.4s; */
 	}
 	.button2{
     background-color:green;
@@ -156,9 +157,10 @@ div{
   }
   .forgot{
  font-size: 15px;
- margin-top: 50px;
- margin-left: 800px;
- margin-right: 100px;
+margin-top: 11px;
+margin-left: 900px;
+margin-right: 100px;
+position: absolute;
 
   }
      
@@ -175,17 +177,17 @@ div{
 		<text class="text_color">facebook</text>
 	<label class="email_color" required>email</label><br>
 	<input type="text" class="tx1" >
-	<label class="pwd_color" required>password</label><br>	
+	<label class="pwd_color" required>password</label>
 	<input type="password" class="tx2" >
-	<button class="button1"onclick="myFunc()">Login</button>
-<text class="forgot"><a href="#">forgotten password</a></text></div>
+	<button class="button1">Login</button>
+<text class="forgot"><a href="#">forgotten password??</a></text></div>
 	<h2>Create a New Account</h2>
 	<p>its free and always will be</p>
 	<input type="text" class="text2" placeholder="First Name" required>
 	<input type="text" class="text3" placeholder="SurName" required><br>
 	<input type="text" class="text4" placeholder="Mobile no or Email Address" id="numb" required>
 	<br>
-	<input type="password" class="text5" placeholder="New Password" required><br>
+	<input type="password" class="text5" placeholder="New Password" required><br><br>
 	<label class="lab">Birthday</label><br>
 	<select name="date" class="sel1">
 		<option value="1">1</option>
@@ -213,15 +215,17 @@ div{
 		<option value="6">2016</option>
 		<option value="7">2017</option>
 	</select>
-	<br>
+	<br><br>
+	<label class="lab">gender</label><br>
 	<input type="radio" class="rd" value="F" name="Female">Female
   <input type="radio" class="rd1" value="m" name="Male">Male<br>
-  <p class="p1">By clicking Sign Up, you agree to our <a href="#">Terms</a>, <a href="#">Data Policy</a> and <a href="#">Cookie Policy</a>. You may receive SMS notifications from us and can opt out at any time.</p>
+  <p class="p1"><i>By clicking Sign Up, you agree to our <a href="#">Terms</a>, <a href="#">Data Policy</a> and <a href="#">Cookie Policy</a>. You may receive SMS notifications from us and can opt out at any time.</i></p>
   <button class="button2">sign Up</button>
+  <a href="registration.html">register here..
     
 
 </div>
-
+<!-- 
 <script>
 	function myFunc(){
 		var x,text;
@@ -236,11 +240,7 @@ div{
 
  function myFunction() {
     var x, text;
-
-    // Get the value of the input field with id="numb"
     x = document.getElementById("numb").value;
-
-    // If x is Not a Number or less than one or greater than 10
     if (isNaN(x) || x < 1 || x > 10) {
         text = "Input not valid";
     } else {
@@ -249,6 +249,7 @@ div{
     document.getElementById("demo").innerHTML = text;
 }
 	
-</script></form>
+</script> -->
+</form>
 </body>
 </html>
