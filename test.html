@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html>
    <title>Registration page</title>
    <head>
-       <!-- <script type="text/javascript"></script> -->
+      <!-- <script type="text/javascript"></script> -->
    </head>
    <style>
       div{
@@ -35,11 +37,11 @@
       }
       h2{
       margin-left: 400px;
-      font-size: 30px;		
+      font-size: 30px;    
       }
       input{
       margin-left: 400px;
-      font-size: 20px;	
+      font-size: 20px;  
       }
       .p1{
       font-style: initial;
@@ -109,21 +111,20 @@
       transition-duration: 0.4s; 
       }
       span.s1,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10{
-        font-style: italic;
-        font-size: 12px;
-        color: red;
-        margin-left:400px;
-        margin-top: auto;
-        display: inline-block;
+      font-style: italic;
+      font-size: 12px;
+      color: red;
+      margin-left:400px;
+      margin-top: auto;
+      display: inline-block;
       }
       span.s2{
-        font-style: italic;
-        font-size: 12px;
-        color: red;
-        margin-left:650px;
-        margin-top: auto;
+      font-style: italic;
+      font-size: 12px;
+      color: red;
+      margin-left:650px;
+      margin-top: auto;
       }
-      
    </style>
    <script>
       function myFunction() {
@@ -135,94 +136,115 @@
              text.style.display = "none";
           }
       }
-
-//       function checkemail(email){
-//       var email=document.getElementById('email').value;
-//        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-
-//         if (reg.test(email.value) == false) 
-//         {
-//             // alert('Invalid Email Address');
-//              document.getElementById("errorMessage4").style.display = "block";
-//             return false;
-//         }else{
-//            document.getElementById("errorMessage4").style.display = "none";
-//         }
-
-//         return true;
-
-// }
       
- function ValidateEmail(inputText)
-{
-var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-if(inputText.value.match(mailformat))
-{
-  alert("valid email");
-  // document.getElementById('email').innerHTML="valid email";
-document.myform.email.focus();
-return true;
-}
-else
-{
-alert("You have entered an invalid email address!");
-// document.getElementById('email').innerHTML="this is invalid email";
-document.myform.email.focus();
-return false;
-}
-}
-  function ValidatePwd()
-  {
-   var a=document.myform.pwd.value;
-   if(a==""){
-    alert("plz enter password");
-    document.myform.pwd.focus();
-    return false;
-  }
-   if((a.length<4) || (a.length>8)){
-    alert("password must be 4 to 8 character");
-    document.myform.pwd.select();
-    return false;
-   }
-   }
-
-   function ConfirmPwd(){
-    var pass=document.getElementById('pwd').value;
-    var cpass= document.getElementById('cpwd').value;
-    if(pass!=cpass){
-    alert("password do not match");
-    return false;
-    }else{
-      alert("password is match");
-    }
-   }
-  
-     function ValidatePhone(){
+      //       function checkemail(email){
+      //       var email=document.getElementById('email').value;
+      //        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+      
+      //         if (reg.test(email.value) == false) 
+      //         {
+      //             // alert('Invalid Email Address');
+      //              document.getElementById("errorMessage4").style.display = "block";
+      //             return false;
+      //         }else{
+      //            document.getElementById("errorMessage4").style.display = "none";
+      //         }
+      
+      //         return true;
+      
+      // }
+      
+      function ValidateEmail(inputText)
+      {
+      var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if(inputText.value.match(mailformat))
+      {
+      document.getElementById("errorMessage4").style.display = "none";
+      // document.myform.email.focus();
+      return true;
+      }
+      else
+      {
+      document.getElementById("errorMessage4").style.display = "block";
+      // document.myform.email.focus();
+      return false;
+      }
+      }
+      function ValidatePwd()
+      {
+      var a=document.myform.pwd.value;
+      
+      if(a==""){
+      
+      document.getElementById("errorMessage5").style.display = "block";
+      return false;
+      }
+      if((a.length<4) || (a.length>8)){
+      
+      document.getElementById("errorMessage11").style.display = "block";
+      return false;
+      // document.myform.pwd.select();
+      
+      }
+      else{
+      document.getElementById("errorMessage5").style.display = "none";
+      document.getElementById("errorMessage11").style.display = "none";
+      return true;
+      }
+      }
+      
+      
+      function ConfirmPwd(){
+      var pass=document.getElementById('pwd').value;
+      var cpass= document.getElementById('cpwd').value;
+      if(cpass==""){
+      document.getElementById("errorMessage5").style.display = "block";
+      return false;
+      }
+      
+      if(pass!=cpass){
+      document.getElementById("errorMessage6").style.display = "block";
+      return false;
+      }else{
+       document.getElementById("errorMessage5").style.display = "none";
+        document.getElementById("errorMessage6").style.display = "none";
+        return true;
+      }
+      }
+      
+      function ValidatePhone(){
       var phone=document.myform.mobile.value;
       if(phone=="")
         {
-      alert("please Enter the Contact Number");
-      document.form.mobile.focus();
+      // alert("please Enter the Contact Number");
+      document.getElementById("errorMessage3").style.display = "block";
+      // document.myform.mobile.focus();
          return false;
       }
-if(isNaN(phone))
-{
-alert("Enter the valid Mobile Number(Like : 9500007117)");
-document.form.mobile.focus();
-return false;
-}
-if((phone.length < 8) || (phone.length > 10))
-{
-alert(" Your Mobile Number must be 1 to 10 Integers");
-document.form.mobile.select();
-return false;
-}
-}
-
-   function ValidateGender(){
+      if(isNaN(phone))
+      {
+      document.getElementById("errorMessage12").style.display = "block";
+      // document.myform.mobile.focus();
+      return false;
+      }
+      if((phone.length < 8) || (phone.length > 10))
+      {
+      document.getElementById("errorMessage13").style.display = "block";
+      // document.myform.mobile.select();
+      return false;
+      }
+      else{
+      document.getElementById("errorMessage13").style.display = "none";
+      document.getElementById("errorMessage12").style.display = "none";
+      document.getElementById("errorMessage3").style.display = "none";
+      return true;
+      }
+      }
+      
+      function ValidateGender(){
        var gender = document.getElementsByName('gender');
         var genValue = false;
-
+      
         for(var i=0; i<gender.length;i++){
             if(gender[i].checked == true){
                 genValue = true;    
@@ -232,20 +254,18 @@ return false;
             alert("Please Choose the gender");
             return false;
         }
-
-   }
-  
+      
+      }
+      
       function validate(){
        var fname=document.getElementById('fname').value; 
        var lname=document.getElementById('lname').value;
        var mobile=document.getElementById('mobile').value;
        var addr=document.getElementById('addr').value;
-       var d=document.getElementsByName('day').value;
-       var m=document.getElementsByName('month').value;
-       var y=document.getElementsByName('year').value;
-       var gender=document.getElementById('gender').value;
-  
-
+       var dob=document.getElementsByName('dob').value;
+      
+      
+      
        if(fname==""){
         // document.getElementById('fname_error').value = "can't be blanked ";
         document.getElementById("errorMessage").style.display = "block";
@@ -261,7 +281,7 @@ return false;
        else{
           document.getElementById("errorMessage2").style.display = "none";
        }
-
+      
       if(addr==""){
          document.getElementById("errorMessage7").style.display = "block";
          return true;
@@ -269,8 +289,8 @@ return false;
        else{
         document.getElementById("errorMessage7").style.display = "none";
       } 
-    
-     if(dob==""){
+      
+      if(dob==""){
          alert("please select an option");
          return true;
        }
@@ -278,11 +298,11 @@ return false;
         document.getElementById("errorMessage8").style.display = "none";
       } 
       
-    } 
-    
+      } 
+      
    </script>
-      <form name="myform"  onsubmit="validate()">
-   <body >
+   <form name="myform"  onsubmit="validate()">
+      <body >
          <div>
             <div class="head">
                <h1 class="text_color"><i>Registration Form</i></h1>
@@ -293,17 +313,20 @@ return false;
             <input type="text" class="text3" id="lname" name="lname" onblur="validate()" name="lname" placeholder="LastName" >
             <span class="s2" id="errorMessage2" style="display:none;">Last name field must not be empty</span><br>
             <input type="text" class="text4" id="mobile" name="mobile" onblur="ValidatePhone()" placeholder="please enter Mobile no" >
-           
+            <span class="s3" id="errorMessage3" style="display:none;">phone number must not be empty
+            </span>
+            <span class="s3" id="errorMessage12" style="display:none;">Enter the valid Mobile Number(Like : 9500007117)</span>
+            <span class="s3" id="errorMessage13" style="display:none;">Your Mobile Number must be 8 to 10 Integers</span>
             <br>
-
             <input type="text" class="text4" name="email" id="email" onblur="ValidateEmail(document.myform.email)" placeholder="enter Email Address">
-           
-
+            <span class="s4" id="errorMessage4" style="display:none;">invalid email address</span><br>
             <input type="password" class="text5" id="pwd" onblur="ValidatePwd()" placeholder="Password" >
-            
+            <span class="s5" id="errorMessage5" style="display:none;">password is not empty</span>
+            <span class="s5" id="errorMessage11" style="display:none;">password must be 4 to 8 character</span>
             <br>
             <input type="password" class="text5" id="cpwd" onblur="ConfirmPwd()" placeholder="Confirmd Password">
-           <br>
+            <span class="s6" id="errorMessage6" style="display:none;">password do not match</span><br>
+            <br>
             <input type="text" class="text5" id="addr" onblur="validate()" placeholder="Address" >
             <span class="s7" id="errorMessage7" style="display:none;">Address field must not be empty</span><br><br>
             <label class="lab" id="dob" onblur="validate()">DOB</label>
@@ -347,7 +370,7 @@ return false;
             <button class="button2" onclick ="ValidateGender()" >Submit</button>
             <a href="frontpage.html">back</a>
          </div>
-      </form>
+   </form>
    </body>
 </html>
 
