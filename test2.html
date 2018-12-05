@@ -1,0 +1,61 @@
+<head>
+    <script type="text/javascript">
+        function validate() {
+            if (myform.fname.value.length == 0) {
+                // document.getElementById("fname").value = "this is invalid name ";
+                document.getElementById("errorMessage").style.display = "block";
+            }
+            else{
+              document.getElementById("errorMessage").style.display = "none";
+            }
+           if (myform.lname.value.length == 0) {
+                // document.getElementById("lname").value = "this is invalid name ";
+                document.getElementById("errorMessage1").style.display = "block";
+            }else{
+             
+              document.getElementById("errorMessage1").style.display = "none";
+            }
+
+            // if (myform.sel1.value.length == 0) {
+            //     document.getElementById("errorMessage2").style.display = "block";
+            // }else{
+             
+            //   document.getElementById("errorMessage2").style.display = "none";
+            // }
+
+   var result = document.getElementById('sel1').value;
+   if (result == 0) {
+    // document.getElementById("errorMessage2").style.display = "block";
+    alert("please select an option");
+  
+}
+        }
+    </script>
+</head>
+
+<body>
+    <form name="myform">First_Name
+        <input type="text" id="fname" name="fname" onblur="validate()"></input> 
+        <span id="errorMessage" style="display:none;">name field must not be empty</span>
+
+        <br>
+        <br>Last_Name
+        <input type="text" id="lname" name="lname" onblur="validate()"></input>
+         <span id="errorMessage1" style="display:none;">name field must not be empty</span>
+        <br><br>
+        <label id="lab">name</label> <br>
+      
+         <select name="date" class="sel1" id="sel1">
+            <span id="errorMessage2" style="display:none;">name field must not be empty</span><br>
+             <option value="0" selected>Please select an option</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+            </select><br>
+        <input type="button" onclick="validate()" value="check" />
+    </form>
+</body>

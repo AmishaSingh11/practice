@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-   <title>facebook page</title>
+   <title>Registration page</title>
    <head>
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-       </script>
+       <!-- <script type="text/javascript"></script> -->
    </head>
    <style>
       div{
@@ -23,11 +22,12 @@
       border-color: black;  
       }
       .text_color{
-      margin-top: 8px;
+      margin-top: 3px;
       color:white;
       font-size: 40px;
       font-style: solid bold
       margin-left: 400px;
+      text-align: center;
       }
       .text1{
       font-size: 30px;
@@ -35,11 +35,11 @@
       }
       h2{
       margin-left: 400px;
-      font-size: 30px;		
+      font-size: 30px;    
       }
       input{
       margin-left: 400px;
-      font-size: 20px;	
+      font-size: 20px;  
       }
       .p1{
       font-style: initial;
@@ -64,6 +64,7 @@
       padding:7px;
       width: 200px;
       height: 20px;
+      display:inline-block;
       }
       .text3{
       display: inline-block;
@@ -107,6 +108,22 @@
       -webkit-transition-duration:0.4s;
       transition-duration: 0.4s; 
       }
+      span.s1,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10{
+        font-style: italic;
+        font-size: 12px;
+        color: red;
+        margin-left:400px;
+        margin-top: auto;
+        display: inline-block;
+      }
+      span.s2{
+        font-style: italic;
+        font-size: 12px;
+        color: red;
+        margin-left:700px;
+        margin-top: auto;
+      }
+      
    </style>
    <script>
       function myFunction() {
@@ -118,66 +135,158 @@
              text.style.display = "none";
           }
       }
-          function myFunction2()
-          {
-            var fname=document.myform.fname.value;
-            var lname=document.myform.lname.value;
-            var mobile=document.myform.mobile.value;
-            var email=document.myform.email.value;
-            var pwd=document.myform.pwd.value;
-            var cpwd=document.myform.cpwd.value;
-            var addr=document.myform.addr.value;
+
+//       function checkemail(email){
+//       var email=document.getElementById('email').value;
+//        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+//         if (reg.test(email.value) == false) 
+//         {
+//             // alert('Invalid Email Address');
+//              document.getElementById("errorMessage4").style.display = "block";
+//             return false;
+//         }else{
+//            document.getElementById("errorMessage4").style.display = "none";
+//         }
+
+//         return true;
+
+// }
       
-         if (fname==null || fname==""){  
-         alert("First Name can't be blank");  
-        return false;  
-        }
-         if (lname==null || lname==""){  
-         alert("Last Name can't be blank");  
-        return false;  
-        }
+ function ValidateEmail(inputText)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.value.match(mailformat))
+{
+  alert("valid email");
+document.myform.email.focus();
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+document.myform.email.focus();
+return false;
+}
+}
+  
+      function validate(){
+       var fname=document.getElementById('fname').value; 
+       var lname=document.getElementById('lname').value;
+       var mobile=document.getElementById('mobile').value;
+       var email=document.getElementById('email').value;
+       var pwd=document.getElementById('pwd').value;
+       var cpwd=document.getElementById('cpwd').value;
+       var addr=document.getElementById('addr').value;
+       var dob=document.getElementById('dob').value;
+       var gender=document.getElementById('gender').value;
+
+       if(fname==""){
+        // document.getElementById('fname_error').value = "can't be blanked ";
+        document.getElementById("errorMessage").style.display = "block";
+        return true;
+      }
+       else{
+         document.getElementById("errorMessage").style.display = "none";
+       }
+
+        if(lname==""){
+         document.getElementById("errorMessage2").style.display = "block";
+         return true;
+       }
+       else{
+          document.getElementById("errorMessage2").style.display = "none";
+       }
+
+       if(mobile==""){
+         document.getElementById("errorMessage3").style.display = "block";
+         return true;
+       }
+       else{
+        document.getElementById("errorMessage3").style.display = "none";
+      } 
+     
+     if(email==""){
+         document.getElementById("errorMessage4").style.display = "block";
+         return true;
+       }
+       else{
+        document.getElementById("errorMessage4").style.display = "none";
+      } 
+
+      if(pwd==""){
+         document.getElementById("errorMessage5").style.display = "block";
+         return true;
+     }
+       else{
+        document.getElementById("errorMessage5").style.display = "none";
+        return false;
+      } 
+
+      if(cpwd==""){
+         document.getElementById("errorMessage6").style.display = "block";
+         return true;
+       }
+       else{
+        document.getElementById("errorMessage6").style.display = "none";
+      } 
+
+      if(addr==""){
+         document.getElementById("errorMessage7").style.display = "block";
+         return true;
+       }
+       else{
+        document.getElementById("errorMessage7").style.display = "none";
+      } 
       
-         if (mobile.length>0 || mobile.length<11){  
-         alert("phone Number should be between 1 to 10");  
-        return false;  
-        }
-         if (email==null || email==""){  
-         alert("please enter valid email");  
-        return false;  
-        }
-         if(pwd.length<6){  
-        alert("Password must be at least 6 characters long.");  
-        return false;  
-        }  
-         if(cpwd.length<6){  
-        alert("Password must be at least 6 characters long.");  
-        return false;  
-        } 
-         else if (addr==null || addr==""){  
-         alert("Address can't be blank");  
-        return false;  
-        } 
-      }  
-          
+     if(dob==""){
+         // document.getElementById("errorMessage8").style.display = "block";
+         alert("please select an option");
+         return true;
+       }
+       else{
+        document.getElementById("errorMessage8").style.display = "none";
+      } 
+       if(gender==""){
+         document.getElementById("errorMessage9").style.display = "block";
+         return true;
+       }
+       else{
+        document.getElementById("errorMessage9").style.display = "none";
+      }
+    } 
+    
    </script>
-   <body>
-      <form name="myform" onsubmit="myFunction2()">
+      <form name="myform"  onsubmit="validate()">
+   <body >
          <div>
             <div class="head">
-               <h1 class="text_color">Registration Form</h1>
+               <h1 class="text_color"><i>Registration Form</i></h1>
             </div>
             <h2><i>Create a New Account.....</i></h2>
-            <input type="text" class="text2" name="fname" placeholder="First Name" >
-            <input type="text" class="text3" name="lname" placeholder="LastName" ><br>
-            <input type="text" class="text4" name="mobile" placeholder="please enter Mobile no" >
+            <input type="text" class="text2" id="fname" onblur="validate()"  name="fname" placeholder="First Name" >
+            <span class="s1" id="errorMessage" style="display:none;">First name field must not be empty</span>
+            <input type="text" class="text3" id="lname" name="lname" onblur="validate()" name="lname" placeholder="LastName" >
+            <span class="s2" id="errorMessage2" style="display:none;">Last name field must not be empty</span><br>
+            <input type="text" class="text4" id="mobile" name="mobile" onblur="validate()" placeholder="please enter Mobile no" >
+            <span class="s3" id="errorMessage3" style="display:none;"> Phone no must not be empty</span>
             <br>
-            <input type="email" class="text4" name="email" placeholder="enter Email Address">
+
+            <input type="text" class="text4" name="email" id="email" onblur="validate()" placeholder="enter Email Address">
+            <span class="s4" id="errorMessage4" style="display:none;">Email is required</span><br>
+
+            <input type="password" class="text5" id="pwd" onblur="validate()" placeholder="Password" >
+
+            <span class="s5" id="errorMessage5" style="display:none;">Password must not be empty</span>
             <br>
-            <input type="password" class="text5" name="pwd" placeholder="Password" ><br>
-            <input type="password" class="text5" name="cpwd" placeholder="Confirmd Password"><br>
-            <input type="text" class="text5" name="addr" placeholder="Address" ><br><br>
-            <label class="lab">DOB</label><br>
+            <input type="password" class="text5" id="cpwd" onblur="validate()" placeholder="Confirmd Password">
+            <span class="s6" id="errorMessage6" style="display:none;"> Confirm Password must not be empty</span><br>
+           <input type="text" class="text5" id="addr" onblur="validate()" placeholder="Address" >
+            <span class="s7" id="errorMessage7" style="display:none;">Address field must not be empty</span><br><br>
+            <label class="lab" id="dob" onblur="validate()">DOB</label>
+            <span class="s8" id="errorMessage8" style="display:none;">DOB must not be empty</span><br>
             <select name="date" class="sel1">
+               <option value="0" selected>dd</option>
                <option value="1">1</option>
                <option value="2">2</option>
                <option value="3">3</option>
@@ -186,7 +295,8 @@
                <option value="6">6</option>
                <option value="7">7</option>
             </select>
-            <select name="month" >
+            <select name="month"> 
+              <option value="0" selected>mm</option>
                <option value="jan">jan</option>
                <option value="feb">feb</option>
                <option value="mar">mar</option>
@@ -194,7 +304,8 @@
                <option value="may">may</option>
                <option value="june">jun</option>
             </select>
-            <select name="year" >
+            <select name="year">
+               <option value="0" selected>yyyy</option>
                <option value="1">1990</option>
                <option value="2">1991</option>
                <option value="3">1993</option>
@@ -204,11 +315,12 @@
                <option value="7">2017</option>
             </select>
             <br><br>
-            <label class="lab">Gender</label><br>
+            <label class="lab" id="gender" onblur="validate()">Gender</label>
+            <span class="s9" id="errorMessage9" style="display:none;">please select gender</span><br>
             <input type="radio" class="rd" value="F" name="Female">Female
             <input type="radio" class="rd1" value="m" name="Male">Male<br><br>
-            <input type="checkbox" id="myCheck" onclick="myFunction()"><i>all the informations are correct to given by me..</i><br><br>
-            <p id="text" style="display:none">dfsdfd</p>
+            <input type="checkbox" id="myCheck" ><i>all the informations are correct to given by me..</i><br><br>
+            <p id="text" style="display:none"></p>
             <button class="button2">Submit</button>
             <a href="frontpage.html">back</a>
          </div>

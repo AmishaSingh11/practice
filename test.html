@@ -1,143 +1,353 @@
+<!DOCTYPE html>
+<html>
+   <title>Registration page</title>
+   <head>
+       <!-- <script type="text/javascript"></script> -->
+   </head>
+   <style>
+      div{
+      background-color: #D7DAE0;
+      max-height: 800px;
+      width: auto;
+      padding-top: 1px;
+      padding-bottom: 10px;
+      }
+      .head
+      {
+      border:1px solid black;
+      background-color: #34495e;
+      height: 65px;
+      width: auto;
+      padding-top: 30px;
+      border-color: black;  
+      }
+      .text_color{
+      margin-top: 3px;
+      color:white;
+      font-size: 40px;
+      font-style: solid bold
+      margin-left: 400px;
+      text-align: center;
+      }
+      .text1{
+      font-size: 30px;
+      color:white;
+      }
+      h2{
+      margin-left: 400px;
+      font-size: 30px;		
+      }
+      input{
+      margin-left: 400px;
+      font-size: 20px;	
+      }
+      .p1{
+      font-style: initial;
+      font-size: 12px;
+      margin-left: 400px;
+      margin-right: 400px;
+      }
+      .lab{
+      margin-left: 400px;
+      font-size: 16px;
+      margin-top: 30px;
+      }
+      select{
+      display: inline-block;
+      }
+      .sel1{
+      margin-left: 400px;
+      }
+      .text2{
+      margin-left: 400px;
+      margin-top: 5px;
+      padding:7px;
+      width: 200px;
+      height: 20px;
+      display: inline-block;
+      }
+      .text3{
+      display: inline-block;
+      margin-right: 300px;
+      margin-left: 16px;
+      margin-top: 5px;
+      padding:7px;
+      width: 200px;
+      height: 20px;
+      }
+      .text4{
+      margin-top: 5px;
+      margin-left: 400px;
+      padding:7px;
+      width: 450px;
+      height: 20px;
+      }
+      .text5{
+      margin-top: 5px;
+      margin-left: 400px;
+      padding: 7px;
+      width: 450px;
+      height: 20px;
+      }
+      .rd{margin-left: 400px;
+      margin-top: 5px;
+      }
+      .rd1{margin-left:100px;
+      }
+      .logo{
+      }
+      .button2{
+      background-color:green;
+      margin-left: 400px;
+      cursor:pointer;
+      font-size: 25px;
+      height: 45px;
+      width: 180px;
+      color:white;
+      border:1px solid black;
+      -webkit-transition-duration:0.4s;
+      transition-duration: 0.4s; 
+      }
+      span.s1,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10{
+        font-style: italic;
+        font-size: 12px;
+        color: red;
+        margin-left:400px;
+        margin-top: auto;
+        display: inline-block;
+      }
+      span.s2{
+        font-style: italic;
+        font-size: 12px;
+        color: red;
+        margin-left:650px;
+        margin-top: auto;
+      }
+      
+   </style>
+   <script>
+      function myFunction() {
+          var checkBox = document.getElementById("myCheck");
+          var text = document.getElementById("text");
+          if (checkBox.checked == true){
+              text.style.display = "block";
+          } else {
+             text.style.display = "none";
+          }
+      }
 
-<!DOCTYPE html> 
-<head>
-<title>www.protonsHUB.com</title> 
-</head>
-<style>
-	div{
-		background-color:  #f2f4f4  ;
-		height: auto;
-		width: auto;
-	}
-	h1{
-  text-align: center;
-  color:white;
-  padding: 10px;
-  margin-top: 8px;
-  text-shadow: 1px 2px 3px white;
-	}
-	header{
- 	 background-color:#2e4053;
-		padding: 1px;
-	}
- footer{
- background-color: #2e4053  ;
- font-size: 5px;
- padding:9px;
- margin-bottom: 0px;
- margin-top: 300px;
-	}
-	a{
-		color:white;
-		background-color:#2e4053;
-	}
-	a.link1{
-		margin-top: -45px;
-		font-size: 18px;
-		position: absolute;
-		display: inline-block;
-     background-color:#2e4053;
-	}
-	a.link2{
-		margin-left: 75px;
-		margin-top: -45px;
-		font-size: 18px;
-		position: absolute;
-		display: inline-block;
-		 background-color:#2e4053;
-	}
-	a.link3{
-		margin-left:150px; 
-		margin-top: -45px;
-		font-size: 18px;
-		position: absolute;
-		display: inline-block;
-		 background-color:#2e4053;
-	}
-	p{
-		font-size:14px;
-		font-style: italic;
-	}
-	b{
-		font-style: bold;
-		font-size: 20px;
-	}
-	.marq{
-   font-size:14px;
-   text-shadow: 1px 2px 3px blue;
-   color:white;
-	}
-	.logo{
-     width: 10%;
-     height: 8%;
-     margin-top: -95px;
-     border: 10px solid transparent;
-     border-radius: 50%;
+//       function checkemail(email){
+//       var email=document.getElementById('email').value;
+//        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-	}
-	.tx{
-		margin-left: 1000px;
-		font-size: 16px;
-    background-color: #5E6B86;
-	}
-	.image1{
-		margin-top: 200px;  
-     width: 500px;
-     height: 200px;
-     border: 1px solid #ccc;
-     
-	}
-	.image2{
-		margin-top: 242px;
-     /*float:right;*/
-     width: 500px;
-     height: 200px;
-     border: 1px solid #ccc;
+//         if (reg.test(email.value) == false) 
+//         {
+//             // alert('Invalid Email Address');
+//              document.getElementById("errorMessage4").style.display = "block";
+//             return false;
+//         }else{
+//            document.getElementById("errorMessage4").style.display = "none";
+//         }
+
+//         return true;
+
+// }
+      
+ function ValidateEmail(inputText)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.value.match(mailformat))
+{
+  alert("valid email");
+  // document.getElementById('email').innerHTML="valid email";
+document.myform.email.focus();
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+// document.getElementById('email').innerHTML="this is invalid email";
+document.myform.email.focus();
+return false;
+}
+}
+  function ValidatePwd()
+  {
+   var a=document.myform.pwd.value;
+   if(a==""){
+    alert("plz enter password");
+    document.myform.pwd.focus();
+    return false;
+  }
+   if((a.length<4) || (a.length>8)){
+    alert("password must be 4 to 8 character");
+    document.myform.pwd.select();
+    return false;
+   }
+   }
+
+   function ConfirmPwd(){
+    var pass=document.getElementById('pwd').value;
+    var cpass= document.getElementById('cpwd').value;
+    if(pass!=cpass){
+    alert("password do not match");
+    return false;
+    }else{
+      alert("password is match");
+    }
+   }
+  
+     function ValidatePhone(){
+      var phone=document.myform.mobile.value;
+      if(phone=="")
+        {
+      alert("please Enter the Contact Number");
+      document.form.mobile.focus();
+         return false;
+      }
+if(isNaN(phone))
+{
+alert("Enter the valid Mobile Number(Like : 9500007117)");
+document.form.mobile.focus();
+return false;
+}
+if((phone.length < 8) || (phone.length > 10))
+{
+alert(" Your Mobile Number must be 1 to 10 Integers");
+document.form.mobile.select();
+return false;
+}
+}
+
+   function ValidateGender(){
+       var gender = document.getElementsByName('gender');
+        var genValue = false;
+
+        for(var i=0; i<gender.length;i++){
+            if(gender[i].checked == true){
+                genValue = true;    
+            }
+        }
+        if(!genValue){
+            alert("Please Choose the gender");
+            return false;
+        }
+
+   }
+  
+      function validate(){
+       var fname=document.getElementById('fname').value; 
+       var lname=document.getElementById('lname').value;
+       var mobile=document.getElementById('mobile').value;
+       var addr=document.getElementById('addr').value;
+       var d=document.getElementsByName('day').value;
+       var m=document.getElementsByName('month').value;
+       var y=document.getElementsByName('year').value;
+       var gender=document.getElementById('gender').value;
+  
+
+       if(fname==""){
+        // document.getElementById('fname_error').value = "can't be blanked ";
+        document.getElementById("errorMessage").style.display = "block";
+        return true;
+      }
+       else{
+         document.getElementById("errorMessage").style.display = "none";
+       }
+        if(lname==""){
+         document.getElementById("errorMessage2").style.display = "block";
+         return true;
+       }
+       else{
+          document.getElementById("errorMessage2").style.display = "none";
+       }
+
+      if(addr==""){
+         document.getElementById("errorMessage7").style.display = "block";
+         return true;
+       }
+       else{
+        document.getElementById("errorMessage7").style.display = "none";
+      } 
     
-	}
-	.image3{
-		margin-top: 242px;
-		margin-bottom: 2px;
-     /*float:right;*/
-     width: 500px;
-     height: 200px;
-     border: 1px solid #ccc;
- 
-	}
-</style>
-<body>  
-	<div>
-		<header>
-		<!-- <marquee>Welcome to Our website</marquee> -->
-		<h1><i>ProtonsHub.com</i></h1>.
-		<img class="logo" src="ph.jpg" alt="" style="float:right;">
-		<a class="link1" href="#">Home</a>
-		<a class="link2" href="#">query</a>
-		<a class="link3" href="#">current vacancy</a>
-	</header>
-		<p><b>AboutUs = </b>jhds djsdkjs jshdjkshdkj sdhjshdjh sdhhsjdhdhs sdjhs <br> 
-	                	jhds djsdkjs jshdjkshdkj sdhjshdjh sdhhsjdhdhs sdjhs<br>jhds djsdkjs jshdjkshdkj sdhjshdjh sdhhsjdhdhs sdjhs</p><br>
-	 
-		<p><b>Technology that we are Work = </b> we are working on both RoR and Java.<br></p><br>
-		<p><b>Our Achievement = </b> jhds djsdkjs jshdjkshdkj sdhjshdjh sdhhsjdhdhs sdjhs <br> 
-	                	jhds djsdkjs jshdjkshdkj sdhjshdjh sdhhsjdhdhs sdjhs<br>jhds djsdkjs jshdjkshdkj sdhjshdjh sdhhsjdhdhs sdjhs</p>
-	                	jshdjkshdkj sdhjshdjh sdhhsjdhdhs sdjhs</p><br>
-	     <marquee behavior="scroll" direction="left" scrollamount="5">
-	   <img class="image1" src="oo.jpg" alt=""> 
-	   <!-- <marquee  behavior="scroll" direction="left"  scrollamount="8"> -->
-	    <img class="image2" src="nn.jpg" alt=""> 
-	   <!-- <marquee  behavior="scroll" direction="left"  scrollamount="9"> -->
-	     <img class="image3" src="mm.jpg" alt="">
-	   </marquee>
-	
-		<footer>
-			<a class="tx" href="registration.html">Register here for Online test.</a>
-			<a href="#"><b>Contact US</b></a><br><br>
-			<a href="#"><b>About US</b></a><br><br>
-			<a href="#"><b>Career</b></a><br><br>
-			<a href="#"><b>Contact US</b></a>
-			<!-- <marquee class="marq">career@protonsHUB.com</marquee> -->
-		</footer>
-	</div>
-</body>
-</html> 
+     if(dob==""){
+         alert("please select an option");
+         return true;
+       }
+       else{
+        document.getElementById("errorMessage8").style.display = "none";
+      } 
+      
+    } 
+    
+   </script>
+      <form name="myform"  onsubmit="validate()">
+   <body >
+         <div>
+            <div class="head">
+               <h1 class="text_color"><i>Registration Form</i></h1>
+            </div>
+            <h2><i>Create a New Account.....</i></h2>
+            <input type="text" class="text2" id="fname" onblur="validate()"  name="fname" placeholder="First Name" >
+            <span class="s1" id="errorMessage" style="display:none;">First name field must not be empty</span>
+            <input type="text" class="text3" id="lname" name="lname" onblur="validate()" name="lname" placeholder="LastName" >
+            <span class="s2" id="errorMessage2" style="display:none;">Last name field must not be empty</span><br>
+            <input type="text" class="text4" id="mobile" name="mobile" onblur="ValidatePhone()" placeholder="please enter Mobile no" >
+           
+            <br>
+
+            <input type="text" class="text4" name="email" id="email" onblur="ValidateEmail(document.myform.email)" placeholder="enter Email Address">
+           
+
+            <input type="password" class="text5" id="pwd" onblur="ValidatePwd()" placeholder="Password" >
+            
+            <br>
+            <input type="password" class="text5" id="cpwd" onblur="ConfirmPwd()" placeholder="Confirmd Password">
+           <br>
+            <input type="text" class="text5" id="addr" onblur="validate()" placeholder="Address" >
+            <span class="s7" id="errorMessage7" style="display:none;">Address field must not be empty</span><br><br>
+            <label class="lab" id="dob" onblur="validate()">DOB</label>
+            <span class="s8" id="errorMessage8" style="display:none;">DOB must not be empty</span><br>
+            <select name="day" class="sel1">
+               <option value="0" selected>dd</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+            </select>
+            <select name="month">
+               <option value="0" selected>mm</option>
+               <option value="jan">jan</option>
+               <option value="feb">feb</option>
+               <option value="mar">mar</option>
+               <option value="apr">apr</option>
+               <option value="may">may</option>
+               <option value="june">jun</option>
+            </select>
+            <select name="year" >
+               <option value="0" selected>yyyy</option>
+               <option value="1">1990</option>
+               <option value="2">1991</option>
+               <option value="3">1993</option>
+               <option value="4">2014</option>
+               <option value="5">2015</option>
+               <option value="6">2016</option>
+               <option value="7">2017</option>
+            </select>
+            <br><br>
+            <label class="lab">Gender</label>
+            <br>
+            <input type="radio" class="rd" value="0" onblur="ValidateGender()" name="gender">Female
+            <input type="radio" class="rd1" value="1" onblur="ValidateGender()" name="gender">Male<br><br>
+            <input type="checkbox" id="myCheck" ><i>all the informations are correct to given by me..</i><br><br>
+            <p id="text" style="display:none"></p>
+            <button class="button2" onclick ="ValidateGender()" >Submit</button>
+            <a href="frontpage.html">back</a>
+         </div>
+      </form>
+   </body>
+</html>
+
