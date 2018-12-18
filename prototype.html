@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prototype Pattern</title>
+</head>
+<script type="text/javascript">
+	function Student(theName,theEmail){
+		this.name=theName;
+		this.email=theEmail;
+		this.testMarks=[];
+		this.currentMarks=0;
+	}
+
+	Student.Prototype=
+	{
+		constructor:Student,
+		saveMarks:function(theMarksToAdd)
+		{
+    this.testMarks.push(theMarksToAdd)
+		},
+		showNameAndMarks:function()
+		{
+     var marks;
+     marks=this.testMarks.length>0 ? this.testMarks.join(","): "No Marks Yet";
+     return this.name+ "Marks:"+marks;
+		}
+	}
+
+	firstStudent=new Student("addhj","fgftfd@gmail.com");
+	firstStudent.saveMarks(15);
+	firstStudent.saveMarks(12);
+	firstStudent.saveMarks(16);
+	console.log(firstStudent.showNameAndMarks());
+  // firstStudent.showNameAndMarks();
+</script>
+<script>
+	//factory pattern
+var student=function(name,age,marks)
+{
+var temp={};
+temp.name=name;
+temp.age=age;
+temp.marks=marks;
+temp.printStudent=function(){
+console.log("Name:"+this.name+","+"Age:"+this.age+","+"Marks:"+this.marks);
+};
+return temp;
+};
+var student1=student('raj',23,50);
+var student2=student('ram',20,60);
+student1.printStudent();
+student2.printStudent();
+</script>
+<body>
+
+</body>
+</html>
