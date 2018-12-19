@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+   <title>Registration page</title>
+   <head>
+      <script src="jquery.js"></script>
+   </head>
+   <style>
+      div{
+      background-color: #D7DAE0;
+      max-height: 800px;
+      width: auto;
+      padding-top: 1px;
+      padding-bottom: 10px;
+      }
+      .head
+      {
+      border:1px solid black;
+      background-color: #34495e;
+      height: 65px;
+      width: auto;
+      padding-top: 30px;
+      border-color: black;  
+      }
+      .text_color{
+      margin-top: 3px;
+      color:white;
+      font-size: 40px;
+      font-style: solid bold
+      margin-left: 400px;
+      text-align: center;
+      }
+      .text1{
+      font-size: 30px;
+      color:white;
+      }
+      h2{
+      margin-left: 400px;
+      font-size: 30px;    
+      }
+      input{
+      margin-left: 400px;
+      font-size: 20px;  
+      }
+      .p1{
+      font-style: initial;
+      font-size: 12px;
+      margin-left: 400px;
+      margin-right: 400px;
+      }
+      .lab{
+      margin-left: 400px;
+      font-size: 16px;
+      margin-top: 30px;
+      }
+      select{
+      display: inline-block;
+      }
+      .sel1{
+      margin-left: 400px;
+      }
+      .text4{
+      margin-top: 7px;
+      margin-left: 400px;
+      padding:7px;
+      width: 370px;
+      height: 20px;
+      }
+      .text5{
+      margin-top: 7px;
+      margin-left: 400px;
+      padding: 7px;
+      width: 370px;
+      height: 20px;
+      }
+      .rd{margin-left: 400px;
+      margin-top: 5px;
+      }
+      .rd1{margin-left:100px;
+      }
+      .logo{
+      }
+      .button2{
+      background-color:green;
+      margin-left: 400px;
+      cursor:pointer;
+      font-size: 20px;
+      height: 35px;
+      width: 120px;
+      color:white;
+      border:1px solid black;
+      -webkit-transition-duration:0.4s;
+      transition-duration: 0.4s; 
+      }
+      .button3{
+      background-color:green;
+      margin-left: 15px;
+      cursor:pointer;
+      font-size: 20px;
+      height: 35px;
+      width: 120px;
+      color:white;
+      border:1px solid black;
+      -webkit-transition-duration:0.4s;
+      transition-duration: 0.4s; 
+      }
+      span.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10{
+      font-style: italic;
+      font-size: 12px;
+      color: red;
+      height: 1px;
+      margin-left:5px;
+      margin-top: auto;
+      float: center;
+      }
+   </style>
+   <script>
+      function myFunction() {
+        var checkBox = document.getElementById("myCheck");
+        var text = document.getElementById("text");
+        if (checkBox.checked == true){
+          text.style.display = "block";
+        }else{
+          text.style.display = "none";
+        }
+      }
+        
+        function ValidateEmail(inputText){
+          var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          if(inputText.value.match(mailformat)){
+            document.getElementById("errorMessage4").innerHTML="";
+          }
+          else{
+            document.getElementById("errorMessage4").innerHTML="invalid email address";
+            return false;
+          }
+        }
+        function ValidatePwd(){
+        var a=document.getElementById('pwd').value;   
+        if((a=="")||(a.length>4)){    
+        document.getElementById("errorMessage5").innerHTML = "please enter password";
+        }else{
+           document.getElementById("errorMessage5").innerHTML="";
+        }
+      }
+        
+      function ConfirmPwd(){
+        var pass=document.getElementById('pwd').value;
+        var cpass= document.getElementById('cpwd').value;
+        if(cpass==""){
+           document.getElementById("errorMessage6").innerHTML="confirm password not be empty";
+           document.getElementById("errorMessage13").innerHTML="";
+        }
+        else if(pass!=cpass){
+         document.getElementById("errorMessage13").innerHTML="password do not match"; 
+         document.getElementById("errorMessage6").innerHTML="";   
+        }else{
+           document.getElementById("errorMessage6").innerHTML=""; 
+           document.getElementById("errorMessage13").innerHTML="";      
+        }
+      }
+        
+      function ValidatePhone(){    
+        var phone=document.myform.mobile.value;    
+        if (phone==""){
+          document.getElementById("errorMessage3").innerHTML="number not be empty";
+          document.getElementById("errorMessage10").innerHTML="";
+          
+        }
+          else if (isNaN(phone)||(phone.length!=10) ){
+            document.getElementById("errorMessage10").innerHTML="write valide number & number must be 10 digit ";
+            document.getElementById("errorMessage3").innerHTML="";
+          }
+          else{
+            document.getElementById("errorMessage3").innerHTML="";
+            document.getElementById("errorMessage10").innerHTML="";
+          }
+        }
+      
+         function selectDay(){
+         if(document.myform.day.selectedIndex=="")
+         {
+          alert("plz select day");
+          return false; 
+              }else{
+             var sel=document.getElementById('day').value;
+             var selectedText=sel.options[sel.selectedIndex].text;
+             alert("You have selected : "+selectedText);
+             return true;
+          }
+        }
+      
+         function selectMonth(){
+         if(document.myform.month.selectedIndex=="")
+         {
+          alert("plz select month");
+          return false; 
+              }
+             var sel=document.getElementById('month').value;
+             var selectedText=sel.options[sel.selectedIndex].text;
+             alert("You have selected : "+selectedText);
+             return true;
+          }   
+        function selectYear(){
+        if(document.myform.year.selectedIndex=="")
+         {
+          alert("plz select year");
+          return false; 
+              }
+             var sel=document.getElementById('year').value;
+             var selectedText=sel.options[sel.selectedIndex].text;
+             alert("You have selected : "+selectedText);
+             return true;
+         }
+        function ValidateGender()
+        {
+         var gender = document.getElementsByName('gender');
+         var genValue = false;
+        
+          for(var i=0; i<gender.length;i++){
+              if(gender[i].checked == true){
+                  genValue = true;    
+              }
+          }
+          if(!genValue){
+              window.alert("Please Choose the gender");
+              return false;
+          }
+        
+        }
+        
+       //  function validate()
+       //  {
+       //   var fname=document.getElementById('fname').value; 
+       //   var lname=document.getElementById('lname').value;
+       //   var addr=document.getElementById('addr').value;  
+        
+       //   if(fname=="")
+       //   {
+       //    document.getElementById("errorMessage1").innerHTML = "can't be blanked";
+       //    }
+       //    else{
+       //     document.getElementById("errorMessage1").innerHTML = ""; 
+       //    }
+      
+       //    if(lname==""){
+       //     document.getElementById("errorMessage2").innerHTML = "lastName can't be blanked";
+       //     }  
+       //      else{
+       //     document.getElementById("errorMessage2").innerHTML = ""; 
+       //    }     
+       //   if(addr==""){
+       //     document.getElementById("errorMessage7").innerHTML = "address not be empty";
+       //    }  
+       //     else{
+       //     document.getElementById("errorMessage7").innerHTML = ""; 
+       //    }
+       // }
+         $(document).ready(function(){
+          $flag=1;
+          $("fname").focusout(function(){
+            if ($(this).val()==''){
+               $(this).css("border-color", "#cd2d00");
+              $('#submit').attr('disabled', true);
+              $("#errorMessage1").text("can't be blanked")
+            }else{
+                $(this).css("border-color", "#2eb82e");
+               $('#submit').attr('disabled', false);
+               $("#errorMessage1").text("")
+            }
+          });
+
+           $("lname").focusout(function(){
+            if ($(this).val()==''){
+              $(this).css("border-color", "#cd2d00");
+              $('#submit').attr('disabled', true);
+              $("#errorMessage2").text(" lastName can't be blanked")
+            }else{
+                $(this).css("border-color", "#2eb82e");
+                $('#submit').attr('disabled', false);
+                $("#errorMessage2").text("")
+            }
+          });
+
+           $("addr").focusout(function(){
+            if ($(this).val()==''){
+              $(this).css("border-color", "#cd2d00");
+              $("#fname").css("border-color", "#cd2d00");
+              $('#submit').attr('disabled', true);
+              $("#errorMessage7").text("address not be empty")
+            }else{
+                $(this).css("border-color", "#2eb82e");
+               $('#submit').attr('disabled', false);
+               $("#errorMessage7").text("")
+            }
+          });
+             //submit validation
+            $("#submit").click(function () {
+             if ($("#fname").val() == '') {
+               $("#fname").css("border-color", "#cd2d00");
+               $('#submit').attr('disabled', true);
+               $("#errorMessage1").text("* can't be blanked");
+            }
+             $("#submit").click(function () {
+             if ($("#lname").val() == '') {
+               $("#lname").css("border-color", "#cd2d00");
+               $('#submit').attr('disabled', true);
+               $("#errorMessage2").text("* lastName can't be blanked");
+            }
+             $("#submit").click(function () {
+             if ($("#addr").val() == '') {
+               $("#addr").css("border-color", "#cd2d00");
+               $('#submit').attr('disabled', true);
+               $("#errorMessage7").text("* address not be empty");
+            }
+        });
+      });       
+   </script>
+   <form name="myform" id="myform">
+      <body>
+         <div>
+            <div class="head">
+               <h1 class="text_color"><i>Registration Form</i></h1>
+            </div>
+            <h2><i>Create a New Account.....</i></h2>
+            <input type="text" class="text4" id="fname"  name="fname" placeholder="First Name" >
+            <span class="s1" id="errorMessage1">
+            </span><br>
+            <input type="text" class="text4" id="lname" name="lname" placeholder="LastName" >
+            <span class="s2" id="errorMessage2">
+            </span><br>
+            <input type="text" class="text4" id="mobile" name="mobile" onblur="ValidatePhone()" placeholder="please enter Mobile no" >
+            <span class="s3" id="errorMessage3"> </span>
+             <span class="s3" id="errorMessage10"> </span>
+            <br>
+            <input type="text" class="text4" name="email" id="email" onblur="ValidateEmail(document.myform.email)" placeholder="enter Email Address">
+            <span class="s4" id="errorMessage4"></span><br>
+            <input type="password" class="text5" id="pwd" onblur="ValidatePwd()" placeholder="Password" >
+            <span class="s5" id="errorMessage5"></span>
+            <br>
+            <input type="password" class="text5" id="cpwd" onblur="ConfirmPwd()" placeholder="Confirmd Password">
+            <span class="s6" id="errorMessage6"></span>
+            <span class="s6" id="errorMessage13"></span>
+            <br>
+            <input type="text" class="text5" id="addr" placeholder="Address" >
+            <span class="s7" id="errorMessage7">
+            </span><br><br>
+            <label class="lab" id="dob">DOB</label><br>
+            <select name="day" class="sel1" id="day">
+               <option value="" selected>dd</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+            </select>
+            <select name="month" id="month">
+               <option value="mm" selected>mm</option>
+               <option value="jan">jan</option>
+               <option value="feb">feb</option>
+               <option value="mar">mar</option>
+               <option value="apr">apr</option>
+               <option value="may">may</option>
+               <option value="june">jun</option>
+            </select>
+            <select name="year" id="year">
+               <option value="yy" selected>yyyy</option>
+               <option value="1">1990</option>
+               <option value="2">1991</option>
+               <option value="3">1993</option>
+               <option value="4">2014</option>
+               <option value="5">2015</option>
+               <option value="6">2016</option>
+               <option value="7">2017</option>
+            </select>
+            <br><br>
+            <label class="lab">Gender</label>
+            <br>
+            <input type="radio" class="rd" value="0" onblur="ValidateGender()" name="gender">Female
+            <input type="radio" class="rd1" value="1" onblur="ValidateGender()" name="gender">Male<br><br>
+            <input type="checkbox" id="myCheck" ><i>all the informations are correct to given by me..</i><br><br>
+            <button class="button2" id="submit" >Submit</button>
+            <input type="reset" class="button3" value="Reset" name="Reset">   
+            <a href="frontpage.html">back</a>
+         </div>
+   </form>
+   </body>
+</html>
+
