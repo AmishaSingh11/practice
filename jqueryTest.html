@@ -1,8 +1,11 @@
+
+
 <!DOCTYPE html>
 <html>
    <title>Registration page</title>
    <head>
       <script src="jquery.js"></script>
+      <meta charset="UTF-8">
    </head>
    <style>
       div{
@@ -10,7 +13,7 @@
       max-height: 800px;
       width: auto;
       padding-top: 1px;
-      padding-bottom: 10px;
+      padding-bottom:10px;
       }
       .head
       {
@@ -33,13 +36,23 @@
       font-size: 30px;
       color:white;
       }
-      h2{
+      h3{
       margin-left: 400px;
-      font-size: 30px;    
+      font-size: 23px;    
       }
       input{
-      margin-left: 400px;
-      font-size: 20px;  
+      font-size: 15px;
+      outline: 0;
+      height: 38px;
+      padding: 5px;  
+      }
+      table{
+      margin-left: 410px;
+      border:1px solid #ACAEB3 ;
+      }
+      .td1{
+      font-style:italic;
+      font-size: 17px;
       }
       .p1{
       font-style: initial;
@@ -52,58 +65,35 @@
       font-size: 16px;
       margin-top: 30px;
       }
-      select{
-      display: inline-block;
-      }
-      .sel1{
-      margin-left: 400px;
-      }
       .text4{
       margin-top: 7px;
-      margin-left: 400px;
-      padding:7px;
-      width: 370px;
-      height: 20px;
-      }
-      .text5{
-      margin-top: 7px;
-      margin-left: 400px;
-      padding: 7px;
-      width: 370px;
-      height: 20px;
-      }
-      .rd{margin-left: 400px;
-      margin-top: 5px;
-      }
-      .rd1{margin-left:100px;
-      }
-      .logo{
+      padding:5px;
+      width: 200px;
+      height: 15px;
       }
       .button2{
-      background-color:green;
-      margin-left: 400px;
+      margin-top: 10px;
+      background-color:#5D6D7E;
+      margin-left: 80px;
       cursor:pointer;
-      font-size: 20px;
-      height: 35px;
-      width: 120px;
+      font-size: 16px;
+      height: 30px;
+      width: 90px;
       color:white;
       border:1px solid black;
-      -webkit-transition-duration:0.4s;
-      transition-duration: 0.4s; 
       }
       .button3{
-      background-color:green;
+      margin-top: 10px;
+      background-color:#5D6D7E;
       margin-left: 15px;
       cursor:pointer;
-      font-size: 20px;
-      height: 35px;
-      width: 120px;
+      font-size: 16px;
+      height: 30px;
+      width: 90px;
       color:white;
       border:1px solid black;
-      -webkit-transition-duration:0.4s;
-      transition-duration: 0.4s; 
       }
-      span.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10{
+      span.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9{
       font-style: italic;
       font-size: 12px;
       color: red;
@@ -112,69 +102,193 @@
       margin-top: auto;
       float: center;
       }
+      .s10{
+      font-style: italic;
+      font-size: 12px;
+      color: red;
+      height: 1px;
+      margin-left:5px;
+      margin-top: auto;
+      margin-left: -180px;
+      }
+
+      .rd{margin-left: -65px;
+      margin-top: 5px;
+      }
+      .rd1{margin-left:-165px;
+      }
    </style>
-   <script> 
-         $(document).ready(function(){
-        
-                $("#fname").focusout(function(){
-                  if ($(this).val()==''){          
-                    $("#errorMessage1").text("* can't be blanked");
+   <script>
+      $(document).ready(function(){
+        // $("#fname").focusout(function(){
+        //     var fname=$("#fname").val();
+        //     if ($(fname=='')){
+        //      $("#errorMessage1").text("can't be blanked");
+        //     }else{
+        //        $("#errorMessage1").text("");
+        //     }
+        // });
+      
+           $("#fname").focusout(function(){
+               if ($(this).val()==''){          
+                     $("#errorMessage1").text("* can't be blanked");
+                  }else{
+                      $("#errorMessage1").text("");
+                    }
+                });
+      
+           $("#lname").focusout(function(){
+               if ($(this).val()==''){
+                     $("#errorMessage2").text("* lastName can't be blanked");
                  }else{
-              
-                    $("#errorMessage1").text("");
-                   }
+                     $("#errorMessage2").text("");
+                  }
                });
 
-               $("#lname").focusout(function(){
-                  if ($(this).val()==''){
-                    $("#errorMessage2").text("* lastName can't be blanked");
-                }else{
-                    $("#errorMessage2").text("");
-                 }
-              });
+           $("#mobile").focusout(function(){
+               var mobile = $("#mobile").val();
+                  if($(this).val()==''){
+                   $("#errorMessage3").text("* this field is required");
+                   $("#errorMessage4").text("");
+                  }else if (isNaN(mobile)||(mobile.length!=10) ) {
+                     $("#errorMessage3").text("");
+                     $("#errorMessage4").text("* phone no. must be number or 10 digit required");
+                  }else{
+                      $("#errorMessage3").text("");
+                      $("#errorMessage4").text("");
+                  }
+                });
 
-               $("#addr").focusout(function(){
-                  if ($(this).val()==''){
-                    $("#errorMessage7").text("* address not be empty");
-                }else{
+            $("#pwd").focusout(function(){
+                 var password = $("#pwd").val();
+                      if($(this).val()==''){
+                       $("#errorMessage5").text("* this field is required");
+                       $("#errorMessage6").text("");
+                      }else if (password.length<6) {
+                         $("#errorMessage5").text("");
+                         $("#errorMessage6").text("* minimum 6 character is required");
+                      }else{
+                          $("#errorMessage5").text("");
+                          $("#errorMessage6").text("");
+                      }
+                });
+
+             $("#cpwd").focusout(function(){
+                var pass = $("#pwd").val();
+                var cpass = $("#cpwd").val();
+                  if($(this).val()==''){
+                   $("#errorMessage8").text("* this field is required");
+                   $("#errorMessage9").text("");
+                  }else if (pass!=cpass){
+                     $("#errorMessage8").text("");
+                     $("#errorMessage9").text("* password do not match");
+                  }else{
+                      $("#errorMessage8").text("");
+                      $("#errorMessage9").text("");
+                   }
+                });
+
+             $("#addr").focusout(function(){
+               if ($(this).val()==''){
+                     $("#errorMessage7").text("* address not be empty");
+                 }else{
                      $("#errorMessage7").text("");
-                 }
-             });
-               
-             //submit validation
-           $("#submit").click(function () {
-             if ($("#fname").val() == '') {
-               $("#errorMessage1").text("* can't be blanked");
+                  }
+               });
+              $("#gen").focusout(function(){
+                if ($('input[name=gender]:checked').length <= 0) {          
+                $("#errorMessage10").text("* select atleast one option");
+              }else {          
+                $("#errorMessage10").text("");     
+              }
+            });
+
+        //submit validation
+            $('#submit').click(function () {
+              if ($("#fname").val() == '') {
+                $("#errorMessage1").text("* can't be blanked");
+              }
+              if ($("#lname").val() == '') {
+                $("#errorMessage2").text("* lastName can't be blanked");
              }
-            
-             if ($("#lname").val() == '') {
-               $("#errorMessage2").text("* lastName can't be blanked");
-            }
-            
-             if ($("#addr").val() == '') {
-               $("#errorMessage7").text("* address not be empty");
-            }
-        });
-      });       
+             
+             if ($("#mobile").val()== ''){
+               $("#errorMessage3").text("* this field is required");          
+             }
+             if ($("#pwd").val()==''){
+               $("#errorMessage5").text("* this field is required");
+             }
+              if ($("#cpwd").val()==''){
+                $("#errorMessage8").text("* this field is required");
+             }
+
+              if ($("#addr").val() == '') {
+                $("#errorMessage7").text("* address not be empty");           
+             } 
+
+              if ($('input[name=gender]:checked').length <= 0) {          
+                $("#errorMessage10").text("* select atleast one option");    
+              }
+                return false;
+          });
+       });       
    </script>
-   <form name="myform" id="myform">
+   <form id="myform">
       <body>
          <div>
             <div class="head">
                <h1 class="text_color"><i>Registration Form</i></h1>
             </div>
-            <h2><i>Create a New Account.....</i></h2>
-            <input type="text" class="text4" id="fname"  name="fname" placeholder="First Name" >
-            <span class="s1" id="errorMessage1">
-            </span><br>
-            <input type="text" class="text4" id="lname" name="lname" placeholder="LastName" >
-            <span class="s2" id="errorMessage2">
-            </span><br>
-            <input type="text" class="text5" id="addr" placeholder="Address" >
-            <span class="s7" id="errorMessage7"> <br><br>
-            <button class="button2" id="submit" >Submit</button>
-            <input type="reset" class="button3" value="Reset" name="Reset">   
-            <a href="frontpage.html">back</a>
+            <h3><i>Create a New Account.....??</i></h3>
+            <table>
+               <tr>
+                  <td class="td1">First Name</td>
+                  <td><input type="text" class="text4" id="fname"  name="fname"></td>
+                  <td><span class="s1" id="errorMessage1"></span></td>
+               </tr>
+               <tr>
+                  <td class="td1">Last Name</td>
+                  <td><input type="text" class="text4" id="lname" name="lname"></td>
+                  <td><span class="s2" id="errorMessage2"></td>
+               </tr>
+               <tr>
+                  <td class="td1">Phone No</td>
+                  <td><input type="text" class="text4" id="mobile" name="mobile" ></td>
+                  <td><span class="s3" id="errorMessage3"></span>
+                     <span class="s4" id="errorMessage4"></span>
+                  </td>
+               </tr>
+                <tr>
+                  <td class="td1">Password</td>
+                  <td><input type="text" class="text4" id="pwd" name="pwd"></td>
+                  <td><span class="s5" id="errorMessage5"></span>
+                     <span class="s6" id="errorMessage6"></span>
+                  </td>
+               </tr>
+                <tr>
+                  <td class="td1">Confirm Password</td>
+                  <td><input type="text" class="text4" id="cpwd" name="cpwd"></td>
+                  <td><span class="s8" id="errorMessage8"></span>
+                     <span class="s9" id="errorMessage9"></span>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="td1">Address</td>
+                  <td> <input type="text" class="text4" id="addr"></td>
+                  <td><span class="s7" id="errorMessage7"> <br><br></td>
+               </tr>
+               <tr>
+                 <td class="td1">Gender</td>
+                 <td> <input type="radio" class="rd" id="gen" name="gender" value="female">female</td>
+                <td> <input type="radio" class="rd1" id="gen" name="gender" value="male">male</td>
+                <td><span class="s10" id="errorMessage10"></span></td>
+               </tr>
+               <tr>
+                  <td><button class="button2" id="submit" >Submit</button></td>
+                  <td><input type="reset" class="button3" value="Reset" name="Reset"></td>
+               </tr>
+               </tfoot>
+            </table>
          </div>
    </form>
    </body>
