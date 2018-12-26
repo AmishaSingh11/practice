@@ -1,123 +1,12 @@
 
-
 <!DOCTYPE html>
 <html>
    <title>Registration page</title>
    <head>
       <script src="jquery.js"></script>
       <meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" href="style.css">
    </head>
-   <style>
-      div{
-      background-color: #D7DAE0;
-      max-height: 800px;
-      width: auto;
-      padding-top: 1px;
-      padding-bottom:10px;
-      }
-      .head
-      {
-      border:1px solid black;
-      background-color: #34495e;
-      height: 65px;
-      width: auto;
-      padding-top: 30px;
-      border-color: black;  
-      }
-      .text_color{
-      margin-top: 3px;
-      color:white;
-      font-size: 40px;
-      font-style: solid bold
-      margin-left: 400px;
-      text-align: center;
-      }
-      .text1{
-      font-size: 30px;
-      color:white;
-      }
-      h3{
-      margin-left: 400px;
-      font-size: 23px;    
-      }
-      input{
-      font-size: 15px;
-      outline: 0;
-      height: 38px;
-      padding: 5px;  
-      }
-      table{
-      margin-left: 410px;
-      border:1px solid #ACAEB3 ;
-      }
-      .td1{
-      font-style:italic;
-      font-size: 17px;
-      }
-      .p1{
-      font-style: initial;
-      font-size: 12px;
-      margin-left: 400px;
-      margin-right: 400px;
-      }
-      .lab{
-      margin-left: 400px;
-      font-size: 16px;
-      margin-top: 30px;
-      }
-      .text4{
-      margin-top: 7px;
-      padding:5px;
-      width: 200px;
-      height: 15px;
-      }
-      .button2{
-      margin-top: 10px;
-      background-color:#5D6D7E;
-      margin-left: 80px;
-      cursor:pointer;
-      font-size: 16px;
-      height: 30px;
-      width: 90px;
-      color:white;
-      border:1px solid black;
-      }
-      .button3{
-      margin-top: 10px;
-      background-color:#5D6D7E;
-      margin-left: 15px;
-      cursor:pointer;
-      font-size: 16px;
-      height: 30px;
-      width: 90px;
-      color:white;
-      border:1px solid black;
-      }
-      span.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9{
-      font-style: italic;
-      font-size: 12px;
-      color: red;
-      height: 1px;
-      margin-left:5px;
-      margin-top: auto;
-      float: center;
-      }
-      .s10{
-      font-style: italic;
-      font-size: 12px;
-      color: red;
-      height: 1px;
-      margin-left:5px;
-      margin-top: auto;
-      margin-left: -180px;
-      }
-
-      .rd{margin-left: -65px;
-      margin-top: 5px;
-      }
-      .rd1{margin-left:-165px;
-      }
-   </style>
    <script>
       $(document).ready(function(){
         // $("#fname").focusout(function(){
@@ -128,11 +17,20 @@
         //        $("#errorMessage1").text("");
         //     }
         // });
+        var error_fname=true;
+        var error_lname=true;
+        var error_phone=true;
+        var error_pass=true;
+        var error_cpass=true;
+        var error_address=true;
+        var error_gender=true;
 
        //seperate validation   
            $("#fname").focusout(function(){
                if ($(this).val()==''){          
                      $("#errorMessage1").text("* can't be blanked");
+                     error_fname=false;
+                     return false;
                   }else{
                       $("#errorMessage1").text("");
                     }
@@ -141,6 +39,8 @@
            $("#lname").focusout(function(){
                if ($(this).val()==''){
                      $("#errorMessage2").text("* lastName can't be blanked");
+                     error_lname=false;
+                     return false;
                  }else{
                      $("#errorMessage2").text("");
                   }
@@ -154,6 +54,8 @@
                   }else if (isNaN(mobile)||(mobile.length!=10) ) {
                      $("#errorMessage3").text("");
                      $("#errorMessage4").text("* phone no. must be number or 10 digit required");
+                     error_phone=false;
+                     return false;
                   }else{
                       $("#errorMessage3").text("");
                       $("#errorMessage4").text("");
@@ -168,6 +70,8 @@
                       }else if (password.length<6) {
                          $("#errorMessage5").text("");
                          $("#errorMessage6").text("* minimum 6 character is required");
+                         error_pass=false;
+                         return false;
                       }else{
                           $("#errorMessage5").text("");
                           $("#errorMessage6").text("");
@@ -183,21 +87,28 @@
                   }else if (pass!=cpass){
                      $("#errorMessage8").text("");
                      $("#errorMessage9").text("* password do not match");
+                     error_cpass=false;
+                     return false;
                   }else{
                       $("#errorMessage8").text("");
                       $("#errorMessage9").text("");
                    }
                 });
+             
              $("#addr").focusout(function(){
                if ($(this).val()==''){
                      $("#errorMessage7").text("* address not be empty");
+                      error_address=false;
+                      return false;
                  }else{
                      $("#errorMessage7").text("");
                   }
                });
-              $("#gen").focusout(function(){
+              $(".rd").focusout(function(){
                 if ($('input[name=gender]:checked').length <= 0) {          
                 $("#errorMessage10").text("* select atleast one option");
+                 error_gender=false;
+                 return false;
               }else {          
                 $("#errorMessage10").text("");     
               }
@@ -205,31 +116,54 @@
 
         //submit validation
             $('#submit').click(function () {
+              var error_fname=true;
+              var error_lname=true;
+              var error_phone=true;
+              var error_pass=true;
+              var error_cpass=true;
+              var error_address=true;
+              var error_gender=true;
+
               if ($("#fname").val() == '') {
                 $("#errorMessage1").text("* can't be blanked");
+                  error_fname=false;
               }
               if ($("#lname").val() == '') {
                 $("#errorMessage2").text("* lastName can't be blanked");
+                 error_lname=false;
              }
              
              if ($("#mobile").val()== ''){
-               $("#errorMessage3").text("* this field is required");          
+               $("#errorMessage3").text("* this field is required");
+               error_phone =false;         
              }
              if ($("#pwd").val()==''){
                $("#errorMessage5").text("* this field is required");
+               error_pass=false;
              }
               if ($("#cpwd").val()==''){
                 $("#errorMessage8").text("* this field is required");
+                error_cpass=false;
              }
 
               if ($("#addr").val() == '') {
-                $("#errorMessage7").text("* address not be empty");           
+                $("#errorMessage7").text("* address not be empty");
+                error_address=false;           
              } 
 
               if ($('input[name=gender]:checked').length <= 0) {          
-                $("#errorMessage10").text("* select atleast one option");    
+                $("#errorMessage10").text("* select atleast one option");
+                error_gender=false;    
               }
-                return false;
+
+              if((error_fname==true) && (error_lname==true) && (error_phone==true) && (error_pass==true) && (error_cpass==true) && (error_address==true) && (error_gender==true)){
+                 alert("Registration successful");
+                 return true;
+                 }else{
+                  alert("plz fill the form correctly");
+                  return false;
+                 }
+              
           });
        });       
    </script>
@@ -279,8 +213,8 @@
                </tr>
                <tr>
                  <td class="td1">Gender</td>
-                 <td> <input type="radio" class="rd" id="gen" name="gender" value="female">female</td>
-                <td> <input type="radio" class="rd1" id="gen" name="gender" value="male">male</td>
+                 <td> <input type="radio" class="rd"  name="gender" value="female">female</td>
+                <td> <input type="radio" class="rd" id="rd1" name="gender" value="male">male</td>
                 <td><span class="s10" id="errorMessage10"></span></td>
                </tr>
                <tr>

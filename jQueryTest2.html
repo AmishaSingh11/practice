@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+   <title>Registration page</title>
+   <head>
+      <script src="jquery.js"></script>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <script>
+     $(document).ready(function(){
+
+      $('#errorMessage1').hide();
+      $('#errorMessage2').hide();
+      $('#errorMessage3').hide();
+      $('#errorMessage4').hide();
+      $('#errorMessage5').hide();
+      $('#errorMessage6').hide();
+      $('#errorMessage7').hide();
+      $('#errorMessage8').hide();
+      $('#errorMessage9').hide();
+      $('#errorMessage10').hide();
+
+      var error_fname=true;
+      var error_lname=true;
+      var error_phone=true;
+      var error_pass=true;
+      var error_cpass=true;
+      var error_address=true;
+      var error_gender=true;
+
+
+    $('#fname').focusout(function(){
+      check_fname();
+    });
+    $('#lname').focusout(function(){
+      check_lname();
+    });
+    $('#mobile').focusout(function(){
+      check_phone();
+    });
+    $('#pwd').focusout(function(){
+      check_pass();
+    });
+    $('#cpwd').focusout(function(){
+      check_cpass();
+    });
+    $('#addr').focusout(function(){
+      check_address();
+    });
+    $('.rd').focusout(function(){
+      check_gender();
+    });
+  
+
+  function check_fname(){
+    var fname_val= $("#fname").val();
+    if (fname_val.length == ''){          
+      $("#errorMessage1").show();
+      $("#errorMessage1").html("* can't be blanked");
+      error_fname=false;
+      return false;
+      }else{
+          $('#errorMessage1').hide();
+             }
+          } 
+
+  function check_lname(){
+   var lname_val= $("#lname").val();
+    if (lname_val.length == ''){         
+      $("#errorMessage2").show();
+      $("#errorMessage2").html("* lastName can't be blanked");
+      error_lname=false;
+      return false;
+      }else{
+          $("#errorMessage2").hide();
+             }
+          }
+
+  function check_phone(){
+    var mobile = $("#mobile").val();
+      if(mobile.length == ''){
+        $("#errorMessage3").show();
+        $("#errorMessage3").html("* this field is required");
+        $("#errorMessage4").hide();
+
+       }else if (isNaN(mobile)||(mobile.length!=10) ) {
+           $("#errorMessage3").hide();
+           $("#errorMessage4").show();
+           $("#errorMessage4").html("* phone no. must be number or 10 digit required");
+           error_phone=false;
+           return false;
+        }else{
+             $("#errorMessage3").hide();
+             $("#errorMessage4").hide();
+             }
+        }
+ 
+  function check_pass(){
+     var password = $("#pwd").val();
+       if(password.length == ''){
+         $("#errorMessage5").show();
+         $("#errorMessage5").html("* this field is required");
+         $("#errorMessage6").hide();
+        }else if (password.length<6) {
+          $("#errorMessage5").hide();
+          $("#errorMessage6").show();
+          $("#errorMessage6").html("* minimum 6 character is required");
+          error_pass=false;
+          return false;
+          }else{
+             $("#errorMessage5").hide();
+             $("#errorMessage6").hide();
+             }
+       }
+
+  function check_cpass(){
+     var pass = $("#pwd").val();
+     var cpass = $("#cpwd").val();
+      if(cpass.length == ''){ 
+       $("#errorMessage8").show();
+       $("#errorMessage8").text("* this field is required");
+       $("#errorMessage9").hide();
+       }else if (pass!=cpass){
+         $("#errorMessage8").hide();
+         $("#errorMessage9").show();
+         $("#errorMessage9").html("* password do not match");
+          error_cpass=false;
+          return false;
+          }else{
+              $("#errorMessage8").hide();
+              $("#errorMessage9").hide();
+              }
+          }
+
+  function check_address(){
+    var addrs= $("#addr").val();
+    if (addrs.length ==''){          
+      $("#errorMessage7").show();
+      $("#errorMessage7").html("* address not be empty");
+      error_address=false;
+      return false;
+      }else{
+          $("#errorMessage7").hide();
+             }
+          }
+
+  function check_gender(){
+    var genVal= $(".rd");
+    if ($('input[name=gender]:checked').length == '') {
+      $("#errorMessage10").show();          
+      $("#errorMessage10").html("* select atleast one option");
+       error_gender=false;
+       return false;
+        }else {          
+            $("#errorMessage10").hide();     
+          }
+      }
+   
+    $('#submit_form').click(function(){
+     
+        error_fname=true;
+        error_lname=true;
+        error_phone=true;
+        error_pass=true;
+        error_cpass=true;
+        error_address=true;
+        error_gender=true;
+
+         check_fname();
+         check_lname();
+         check_phone();
+         check_pass();
+         check_cpass();
+         check_address();
+         check_gender();
+
+       if((error_fname==true) && (error_lname==true) && (error_phone==true) && (error_pass==true) && (error_cpass==true) && (error_address==true) && (error_gender==true)){
+         alert("Registration successful");
+         return true;
+         }else{
+          alert("plz fill the form correctly");
+          return false;
+         }
+    });
+ });
+  
+  </script>
+ <form id="myform">
+      <body>
+         <div>
+            <div class="head">
+               <h1 class="text_color"><i>Registration Form</i></h1>
+            </div>
+            <h3><i>Create a New Account.....??</i></h3>
+            <table>
+               <tr>
+                  <td class="td1">First Name</td>
+                  <td><input type="text" class="text4" id="fname"  name="fname" autocomplete="off"></td>
+                  <td><span class="s1" id="errorMessage1"></span></td>
+               </tr>
+               <tr>
+                  <td class="td1">Last Name</td>
+                  <td><input type="text" class="text4" id="lname" name="lname" autocomplete="off"></td>
+                  <td><span class="s2" id="errorMessage2"></td>
+               </tr>
+               <tr>
+                  <td class="td1">Phone No</td>
+                  <td><input type="text" class="text4" id="mobile" name="mobile" autocomplete="off"></td>
+                  <td><span class="s3" id="errorMessage3"></span>
+                     <span class="s4" id="errorMessage4"></span>
+                  </td>
+               </tr>
+                <tr>
+                  <td class="td1">Password</td>
+                  <td><input type="text" class="text4" id="pwd" name="pwd" autocomplete="off"></td>
+                  <td><span class="s5" id="errorMessage5"></span>
+                     <span class="s6" id="errorMessage6"></span>
+                  </td>
+               </tr>
+                <tr>
+                  <td class="td1">Confirm Password</td>
+                  <td><input type="text" class="text4" id="cpwd" name="cpwd" autocomplete="off"></td>
+                  <td><span class="s8" id="errorMessage8"></span>
+                     <span class="s9" id="errorMessage9"></span>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="td1">Address</td>
+                  <td> <input type="text" class="text4" id="addr" autocomplete="off"></td>
+                  <td><span class="s7" id="errorMessage7"> <br><br></td>
+               </tr>
+               <tr>
+                 <td class="td1">Gender</td>
+                 <td> <input type="radio" class="rd" name="gender" value="female">female</td>
+                <td> <input type="radio" class="rd" id="rd1" name="gender" value="male">male</td>
+                <td><span class="s10" id="errorMessage10"></span></td>
+               </tr>
+               <tr>
+                  <td><button class="button2" id="submit_form" >Submit</button></td>
+                  <td><input type="reset" class="button3" value="Reset" name="Reset"></td>
+               </tr>
+               </tfoot>
+            </table>
+         </div>
+   </form>
+   </body>
+</html>
