@@ -1,92 +1,118 @@
 
+
 <!DOCTYPE html>
 <html>
    <title>Registration page</title>
    <head>
-      <meta charset="UTF-8">
-      <link rel="stylesheet" type="text/css" href="style.css">
       <script src="jquery.js"></script>
       <script
         src="https://code.jquery.com/jquery-2.2.4.js"
         integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
         crossorigin="anonymous">
         </script>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" href="style.css">
    </head>
    <script>
-      $(document).ready(function(){    
+      $(document).ready(function(){
+        // $("#fname").focusout(function(){
+        //     var fname=$("#fname").val()        
+        //     if ($(fname=='')){
+        //      $("#errorMessage1").text("can't be blanked")        
+        //     }else{
+        //        $("#errorMessage1").text("")        
+        //     }
+        // })        
+        var error_fname=true;        
+        var error_lname=true;        
+        var error_phone=true ;       
+        var error_pass=true ;       
+        var error_cpass=true;        
+        var error_address=true;       
+        var error_gender=true;
        //seperate validation   
            $("#fname").focusout(function(){
                if ($(this).val()==''){          
-                     $("#errorMessage1").text("* can't be blanked");                  
+                     $("#errorMessage1").text("* can't be blanked");                    
+                      error_fname=false;                     
                       return false;                  
                     }else{
                       $("#errorMessage1").text("");                   
                        }
-                });
-
+                });      
            $("#lname").focusout(function(){
                if ($(this).val()==''){
-                     $("#errorMessage2").text("* lastName can't be blanked");                    
+                     $("#errorMessage2").text("* lastName can't be blanked");                     
+                     error_lname=false;                     
                      return false ;                
                    }else{
                      $("#errorMessage2").text("");                  
                    }
                });
-
            $("#mobile").focusout(function(){
                var mobile = $("#mobile").val();                  
                if($(this).val()==''){
-                   $("#errorMessage3").text("* this field is required");                              
-                 }else if (isNaN(mobile)||(mobile.length!=10) ){                
-                  $("#errorMessage3").text("* phone no. must be number or 10 digit required");   return false;                  
+                   $("#errorMessage3").text("* this field is required");                   
+                   $("#errorMessage4").text("");                  
+                 }else if (isNaN(mobile)||(mobile.length!=10) ) 
+                 {
+                     $("#errorMessage3").text("");                     
+                     $("#errorMessage4").text("* phone no. must be number or 10 digit required");                 error_phone=false ;                    
+                     return false;                  
                    }else{
-                      $("#errorMessage3").text("") ;                                    
+                      $("#errorMessage3").text("") ;                     
+                      $("#errorMessage4").text("");                  
                     }
                 });
-
             $("#pwd").focusout(function(){
                  var password = $("#pwd").val();                      
                  if($(this).val()==''){
-                       $("#errorMessage4").text("* this field is required");                            
+                       $("#errorMessage5").text("* this field is required");                      
+                        $("#errorMessage6").text("");                     
                          }else if (password.length<6) {
-                         $("#errorMessage4").text("* minimum 6 character is required");    
+                         $("#errorMessage5").text("");                         
+                         $("#errorMessage6").text("* minimum 6 character is required");                         error_pass=false;                         
                          return false;                      
                        }else{
-                          $("#errorMessage4").text("");                                           
-                      }
+                          $("#errorMessage5").text("");                          
+                          $("#errorMessage6").text("") ;                     
+                        }
                 });
-
              $("#cpwd").focusout(function(){
                 var pass = $("#pwd").val();                
                 var cpass = $("#cpwd").val() ;                 
-                  if($(this).val()==''){
-                     $("#errorMessage5").text("* this field is required");                       
-                    }else if (pass!=cpass){                      
-                       $("#errorMessage5").text("* password do not match");                     
-                       return false;                  
-                     }else{
-                        $("#errorMessage5").text("");                                         
-                      }
-                }); 
-
+                if($(this).val()==''){
+                   $("#errorMessage8").text("* this field is required");                  
+                    $("#errorMessage9").text("");                  
+                  }else if (pass!=cpass){
+                     $("#errorMessage8").text("");                     
+                     $("#errorMessage9").text("* password do not match");                     
+                     error_cpass=false;                     
+                     return false;                  
+                   }else{
+                      $("#errorMessage8").text("");                      
+                      $("#errorMessage9").text("");                   
+                    }
+                });             
              $("#addr").focusout(function(){
                if ($(this).val()==''){
-                     $("#errorMessage6").text("* address not be empty"); 
+                     $("#errorMessage7").text("* address not be empty");                      
+                     error_address=false;                      
                      return false;                 
                    }else{
-                     $("#errorMessage6").text("");                  
+                     $("#errorMessage7").text("");                  
                    }
-               }); 
-
-             $(".rd").focusout(function(){
+               });              
+              $(".rd").focusout(function(){
                 if ($('input[name=gender]:checked').length <= 0) {          
-                $("#errorMessage7").text("* select atleast one option");                 
-                return false;              
+                $("#errorMessage10").text("* select atleast one option");                 
+                error_gender=false;                
+                 return false;              
                }else {          
-                $("#errorMessage7").text("");     
+                $("#errorMessage10").text("");     
               }           
             });
-          //submit validation
+        //submit validation
             $('#submit').click(function () {
                 error_fname=true;             
                 error_lname=true;              
@@ -110,23 +136,23 @@
                error_phone =false;         
              }
              if ($("#pwd").val()==''){
-               $("#errorMessage4").text("* this field is required");               
+               $("#errorMessage5").text("* this field is required");               
                error_pass=false;             
              }
               if ($("#cpwd").val()==''){
-                $("#errorMessage5").text("* this field is required");                
+                $("#errorMessage8").text("* this field is required");                
                 error_cpass=false ;            
               }
       
               if ($("#addr").val() == '') {
-                $("#errorMessage6").text("* address not be empty");                
+                $("#errorMessage7").text("* address not be empty");                
                 error_address=false;           
              } 
       
               if ($('input[name=gender]:checked').length <= 0) {          
-                $("#errorMessage7").text("* select atleast one option");                
+                $("#errorMessage10").text("* select atleast one option");                
                 error_gender=false;    
-             }
+              }
       
               if((error_fname==true) && (error_lname==true) && (error_phone==true) && (error_pass==true) && (error_cpass==true) && (error_address==true) && (error_gender==true)){
                  alert("Registration successful");                 
@@ -136,7 +162,7 @@
                    return false ;                
                  }
               
-           });      
+          });      
      });       
    </script>
    <form id="myform">
@@ -160,33 +186,40 @@
                <tr>
                   <td class="td1">Phone No</td>
                   <td><input type="text" class="text4" id="mobile" name="mobile" ></td>
-                  <td><span class="s3" id="errorMessage3"></span></td>
+                  <td><span class="s3" id="errorMessage3"></span>
+                     <span class="s4" id="errorMessage4"></span>
+                  </td>
                </tr>
                <tr>
                   <td class="td1">Password</td>
                   <td><input type="text" class="text4" id="pwd" name="pwd"></td>
-                  <td><span class="s5" id="errorMessage4"></span></td>
+                  <td><span class="s5" id="errorMessage5"></span>
+                     <span class="s6" id="errorMessage6"></span>
+                  </td>
                </tr>
                <tr>
                   <td class="td1">Confirm Password</td>
                   <td><input type="text" class="text4" id="cpwd" name="cpwd"></td>
-                  <td><span class="s8" id="errorMessage5"></span></td>
+                  <td><span class="s8" id="errorMessage8"></span>
+                     <span class="s9" id="errorMessage9"></span>
+                  </td>
                </tr>
                <tr>
                   <td class="td1">Address</td>
                   <td> <input type="text" class="text4" id="addr"></td>
-                  <td><span class="s7" id="errorMessage6"> <br><br></td>
+                  <td><span class="s7" id="errorMessage7"> <br><br></td>
                </tr>
                <tr>
                   <td class="td1">Gender</td>
                   <td> <input type="radio" class="rd"  name="gender" value="female">female</td>
                   <td> <input type="radio" class="rd" id="rd1" name="gender" value="male">male</td>
-                  <td><span class="s10" id="errorMessage7"></span></td>
+                  <td><span class="s10" id="errorMessage10"></span></td>
                </tr>
                <tr>
                   <td><button class="button2" id="submit" >Submit</button></td>
                   <td><input type="reset" class="button3" value="Reset" name="Reset"></td>
                </tr>
+               </tfoot>
             </table>
          </div>
    </form>

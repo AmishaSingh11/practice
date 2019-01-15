@@ -2,32 +2,28 @@
     <script type="text/javascript">
         function validate() {
             if (myform.fname.value.length == 0) {
-                // document.getElementById("fname").value = "this is invalid name ";
-                document.getElementById("errorMessage").style.display = "block";
-            }
+                // document.getElementById("fname").value = "this is invalid name "                document.getElementById("errorMessage").style.display = "block"            
+              }
             else{
-              document.getElementById("errorMessage").style.display = "none";
+              document.getElementById("errorMessage").style.display = "none"            
             }
            if (myform.lname.value.length == 0) {
-                // document.getElementById("lname").value = "this is invalid name ";
-                document.getElementById("errorMessage1").style.display = "block";
-            }else{
+                // document.getElementById("lname").value = "this is invalid name "                document.getElementById("errorMessage1").style.display = "block"           
+                 }else{
              
-              document.getElementById("errorMessage1").style.display = "none";
+              document.getElementById("errorMessage1").style.display = "none"            
             }
 
             // if (myform.sel1.value.length == 0) {
-            //     document.getElementById("errorMessage2").style.display = "block";
+            //     document.getElementById("errorMessage2").style.display = "block"            
             // }else{
              
-            //   document.getElementById("errorMessage2").style.display = "none";
+            //   document.getElementById("errorMessage2").style.display = "none"            
             // }
 
-   var result = document.getElementById('sel1').value;
-   if (result == 0) {
-    // document.getElementById("errorMessage2").style.display = "block";
-    alert("please select an option");
-  
+   var result = document.getElementById('sel1').value   if (result == 0) {
+    // document.getElementById("errorMessage2").style.display = "block"   
+     alert("please select an option")  
 }
         }
     </script>

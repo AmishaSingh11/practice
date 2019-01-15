@@ -7,154 +7,151 @@
    </head>
    <style>
       div{
-      background-color: #D7DAE0;
-      max-height: 800px;
-      width: auto;
-      padding-top: 1px;
-      padding-bottom: 10px;
-      }
+      background-color: #D7DAE0;     
+       max-height: 800px ;     
+       width: auto;      
+       padding-top: 1px ;     
+       padding-bottom: 10px;      
+     }
       .head
       {
-      border:1px solid black;
-      background-color: #34495e;
-      height: 65px;
-      width: auto;
-      padding-top: 30px;
+      border:1px solid black;      
+      background-color: #34495e;     
+      height: 65px ;     
+      width: auto ;     
+      padding-top: 30px;      
       border-color: black;  
       }
       .text_color{
-      margin-top: 3px;
-      color:white;
-      font-size: 40px;
-      font-style: solid bold
-      margin-left: 400px;
-      text-align: center;
-      }
+      margin-top: 3px;      
+      color:white;      
+      font-size: 40px;      
+      font-style: solid bold;
+      margin-left: 400px;      
+      text-align: center;      
+       }
       .text1{
-      font-size: 30px;
-      color:white;
+      font-size: 30px;     
+      color:white ;     
       }
       h2{
-      margin-left: 400px;
+      margin-left: 400px;      
       font-size: 30px;    
       }
       input{
-      margin-left: 400px;
+      margin-left: 400px;      
       font-size: 20px;  
       }
       .p1{
-      font-style: initial;
-      font-size: 12px;
-      margin-left: 400px;
-      margin-right: 400px;
-      }
+      font-style: initial      
+      font-size: 12px ;     
+      margin-left: 400px;      
+      margin-right: 400px;      
+     }
       .lab{
-      margin-left: 400px;
-      font-size: 16px;
-      margin-top: 30px;
-      }
+      margin-left: 400px ;     
+      font-size: 16px ;     
+      margin-top: 30px ;     
+     }
       select{
-      display: inline-block;
-      }
+      display: inline-block ;     
+     }
       .sel1{
-      margin-left: 400px;
-      }
+      margin-left: 400px ;     
+     }
       .text4{
-      margin-top: 7px;
-      margin-left: 400px;
-      padding:7px;
-      width: 370px;
-      height: 20px;
+      margin-top: 7px ;    
+      margin-left: 400px ;     
+      padding:7px ;     
+      width: 370px ;     
+      height: 20px ;     
+    }
+     .text5{
+      margin-top: 7px;    
+      margin-left: 400px ;     
+      padding: 7px;      
+      width: 370px;      
+      height: 20px;      
+    }
+      .rd{margin-left: 400px ;     
+        margin-top: 5px ;     
       }
-      .text5{
-      margin-top: 7px;
-      margin-left: 400px;
-      padding: 7px;
-      width: 370px;
-      height: 20px;
-      }
-      .rd{margin-left: 400px;
-      margin-top: 5px;
-      }
-      .rd1{margin-left:100px;
+      .rd1{margin-left:100px ;     
       }
       .logo{
       }
       .button2{
-      background-color:green;
-      margin-left: 400px;
-      cursor:pointer;
-      font-size: 20px;
-      height: 35px;
-      width: 120px;
-      color:white;
-      border:1px solid black;
-      -webkit-transition-duration:0.4s;
+      background-color:green;     
+      margin-left: 400px ;     
+      cursor:pointer ;     
+      font-size: 20px ;     
+      height: 35px;      
+      width: 120px;      
+      color:white ;     
+      border:1px solid black ;     
+      -webkit-transition-duration:0.4s ;     
       transition-duration: 0.4s; 
       }
       .button3{
-      background-color:green;
-      margin-left: 15px;
-      cursor:pointer;
-      font-size: 20px;
-      height: 35px;
-      width: 120px;
-      color:white;
-      border:1px solid black;
-      -webkit-transition-duration:0.4s;
-      transition-duration: 0.4s; 
+      background-color:green ;     
+      margin-left: 15px;     
+       cursor:pointer ;     
+       font-size: 20px ;     
+       height: 35px ;     
+       width: 120px ;     
+       color:white ;     
+       border:1px solid black;      
+       -webkit-transition-duration:0.4s;      
+       transition-duration: 0.4s; 
       }
       span.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10{
-      font-style: italic;
-      font-size: 12px;
-      color: red;
-      height: 1px;
-      margin-left:5px;
-      margin-top: auto;
-      float: center;
-      }
+      font-style: italic ;    
+       font-size: 12px;      
+       color: red  ;    
+       height: 1px ;     
+       margin-left:5px ;     
+       margin-top: auto;      
+       float: center ;     
+     }
    </style>
    <script>
        $(document).ready(function(){
            //seperate validation
                 $("#fname").focusout(function(){
                   if ($(this).val()==''){          
-                    $("#errorMessage1").text("* can't be blanked");
-                 }else{
-                     $("#errorMessage1").text("");
-                   }
-               });
-
+                    $("#errorMessage1").text("* can't be blanked")                 
+                  }else{
+                     $("#errorMessage1").text("")                  
+                      }
+               })
                $("#lname").focusout(function(){
                   if ($(this).val()==''){
-                    $("#errorMessage2").text("* lastName can't be blanked");
-                }else{
-                    $("#errorMessage2").text("");
-                 }
-              });
-
+                    $("#errorMessage2").text("* lastName can't be blanked")               
+                     }else{
+                    $("#errorMessage2").text("")                
+                     }
+              })
                $("#addr").focusout(function(){
                   if ($(this).val()==''){
-                    $("#errorMessage7").text("* address not be empty");
-                }else{
-                     $("#errorMessage7").text("");
-                 }
-             });
-               
+                    $("#errorMessage7").text("* address not be empty")                
+                  }else{
+                     $("#errorMessage7").text("")                 
+                   }
+             })               
              //submit validation
            $("#submit").click(function () {
              if ($("#fname").val() == '') {
-               $("#errorMessage1").text("* can't be blanked");
+               $("#errorMessage1").text("* can't be blanked")             
              }
             
              if ($("#lname").val() == '') {
-               $("#errorMessage2").text("* lastName can't be blanked");
-            }
+               $("#errorMessage2").text("* lastName can't be blanked")           
+                }
             
              if ($("#addr").val() == '') {
-               $("#errorMessage7").text("* address not be empty");
-            }
-        });
+               $("#errorMessage7").text("* address not be empty")           
+                }
+         })     
       });       
    </script>
    <form name="myform" id="myform">
